@@ -1,2 +1,3 @@
-mixin h3(text)
-  h3.h3= text
+mixin h3(text, modifiers={})
+  - const classes = getModifiers('h3', modifiers);
+  h3(class="h3" class=classes)= text

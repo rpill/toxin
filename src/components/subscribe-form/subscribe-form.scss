@@ -1,0 +1,24 @@
+.subscribe-form {
+  position: relative;
+
+  &__input {
+
+  }
+
+  &__button {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+
+    background-color: white;
+    border: 0;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+  }
+}

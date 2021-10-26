@@ -18,13 +18,15 @@ module.exports = {
   plugins: [
 
     new CopyWebpackPlugin({
-      patterns: [
-        {
+      patterns: [{
           from: path.posix.join(
             path.resolve(__dirname, paths.src, 'components').replace(/\\/g, "/"),
             "*/images/*"
           ),
-          to({ context, absoluteFilename }) {
+          to({
+            context,
+            absoluteFilename
+          }) {
             return `${path.relative(path.join(context, 'src'), absoluteFilename)}`;
           },
           noErrorOnMissing: true,
@@ -40,7 +42,13 @@ module.exports = {
       template: `${paths.pages}/${page}`,
       filename: `./${page.replace(/\.pug/,'.html')}`,
       inject: 'body',
-      minify: false
+      minify: false,
+
+      templateParameters: {
+        getModifiers: (className, modifiers) => (
+          Object.entries(modifiers).map((item) => `${className}_${item.join('_')}`)
+        ),
+      }
     }))
   ],
   module: {
@@ -48,7 +56,10 @@ module.exports = {
       // Pug
       {
         test: /\.pug$/,
-        loader: 'pug-loader'
+        loader: 'pug-loader',
+        options: {
+
+        }
       },
 
       // JavaScript
@@ -62,19 +73,6 @@ module.exports = {
             plugins: ['@babel/plugin-proposal-object-rest-spread']
           }
         }
-      },
-
-      // Images
-      {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        // exclude: /src\/fonts/,
-        type: 'asset/resource',
-        generator: {
-          filename: ({ filename }) => {
-            console.log(filename);
-            return `${filename.replace('src/', 'images/')}`
-          },
-        },
       },
     ],
   },

@@ -1,6 +1,76 @@
 .footer {
+  border-top: 1px solid var(--color-dark-10);
+
+  &__content {
+    display: flex;
+    padding: 100px 0;
+  }
+
+  &__info {
+    max-width: 260px;
+    margin-right: 40px;
+  }
+
+  &__logo {}
+
+  &__info-text {
+    margin-top: 20px;
+    font-size: var(--text-font-size);
+    line-height: var(--text--line-height);
+    color: var(--color-dark-75);
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  &__menu-column {
+    &:not(:last-child) {
+      margin-right: 55px;
+    }
+  }
+
+  &__menu-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__menu-item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__menu-link {
+    font-size: var(--text-font-size);
+    line-height: 17px;
+    color: var(--color-dark-50);
+
+    text-decoration: none;
+  }
+
+  &__column-title {
+    margin-bottom: 20px;
+  }
+
+  &__subscribe {
+    max-width: 260px;
+    margin-left: 50px;
+  }
+
+  &__subscribe-text {
+    margin-bottom: 20px;
+    font-size: var(--text-font-size);
+    line-height: var(--text-line-height);
+    color: var(--color-dark-75);
+  }
+
   &__bottom {
     padding: 23px 0;
+
     border-top: 1px solid var(--color-dark-10);
   }
 
@@ -8,5 +78,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  &__copyright {
+    font-size: var(--text-font-size);
+    line-height: 17px;
+    color: var(--color-dark-75);
   }
 }

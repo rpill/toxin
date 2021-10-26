@@ -1,4 +1,4 @@
-.h3 {
+.label {
   margin: 0;
 
   font-size: 12px;
@@ -6,7 +6,5 @@
   font-weight: 700;
   color: var(--color-dark);
 
-  &_text_upper {
-    text-transform: uppercase;
-  }
+  text-transform: uppercase;
 }

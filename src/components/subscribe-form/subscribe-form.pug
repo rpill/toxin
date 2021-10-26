@@ -1,0 +1,8 @@
+include ../input/input
+
+mixin subscribe-form
+  form(class="subscribe-form" action="")
+    .subscribe-form__input 
+      +input('Email', 'subscribe-email')
+    button(class="subscribe-form__button" type="submit")
+      include ./images/arrow-forward.svg
