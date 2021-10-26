@@ -1,34 +1,80 @@
 .footer {
   border-top: 1px solid var(--color-dark-10);
 
+  @include respond-down('md') {
+    padding: 120px 0;
+  }
+
+  @include respond-down('sm') {
+    padding: 90px 0;
+  }
+
   &__content {
     display: flex;
-    padding: 100px 0;
+    padding: 100px 0 60px;
+
+    @include respond-down('lg') {
+      flex-wrap: wrap;
+    }
+
+    @include respond-down('md') {
+      justify-content: center;
+      padding: 0;
+    }
   }
 
   &__info {
     max-width: 260px;
     margin-right: 40px;
+    
+    @include respond-down('md') {
+      margin-right: 0;
+    }
   }
 
-  &__logo {}
+  &__logo {
+    margin-bottom: 20px;
+  }
 
   &__info-text {
-    margin-top: 20px;
     font-size: var(--text-font-size);
     line-height: var(--text--line-height);
     color: var(--color-dark-75);
+
+    @include respond-down('md') {
+      display: none;
+    }
   }
 
   &__menu {
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
+
+    @include respond-down('xl') {
+      flex-wrap: wrap;
+    }
+
+    @include respond-down('lg') {
+      order: 1;
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    @include respond-down('md') {
+      display: none;
+    }
   }
 
   &__menu-column {
+    margin-bottom: 40px;
+
     &:not(:last-child) {
       margin-right: 55px;
+
+      @include respond-down('xl') {
+        margin-right: 25px;
+      }
     }
   }
 
@@ -59,6 +105,10 @@
   &__subscribe {
     max-width: 260px;
     margin-left: 50px;
+
+    @include respond-down('md') {
+      display: none;
+    }
   }
 
   &__subscribe-text {
@@ -72,17 +122,32 @@
     padding: 23px 0;
 
     border-top: 1px solid var(--color-dark-10);
+
+    @include respond-down('md') {
+      padding: 0;
+
+      border-top: 0;
+    }
   }
 
   &__bottom-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include respond-down('md') {
+      flex-direction: column;
+    }
   }
 
   &__copyright {
     font-size: var(--text-font-size);
     line-height: 17px;
     color: var(--color-dark-75);
+
+    @include respond-down('md') {
+      margin-bottom: 25px;
+      text-align: center;
+    }
   }
 }

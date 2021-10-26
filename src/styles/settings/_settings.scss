@@ -12,9 +12,44 @@
   --text-font-size: 14px;
   --text-line-height: 24px;
 
-  --max-row-width: 1160px;
+  --max-row-width: 1210px;
 
   --border-radius: 4px;
 
   --default-transition: .4s ease-in-out;
+}
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1600px
+);
+
+@mixin respond-up($breakpoint) {
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+ 
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($grid-breakpoints)}.";
+  }
+}
+
+@mixin respond-down($breakpoint) {
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    @media (max-width: map-get($grid-breakpoints, $breakpoint) - 1px) {
+      @content;
+    }
+  }
+ 
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($grid-breakpoints)}.";
+  }
 }
