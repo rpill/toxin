@@ -1,0 +1,13 @@
+extends ../../pug/base
+
+include ../header/header
+include ../footer/footer
+
+block page
+  .page
+    +header
+
+    main.page__content
+      block content
+
+    +footer
