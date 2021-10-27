@@ -51,15 +51,14 @@ mixin footer
               ul.footer__menu-list
                 each item in items
                   li.footer__menu-item 
-                    a(href="").footer__menu-link= item
+                    a(class="footer__menu-link" href="")= item
 
         section.footer__subscribe
-          .footer__subscribe-content
-            .footer__column-title
-              +h3('Подписка', { text: 'upper' })
-            .footer__subscribe-text Получайте специальные предложения и новости сервиса
-            .footer__subscribe-form 
-              +subscribe-form
+          .footer__column-title
+            +h3('Подписка', { text: 'upper' })
+          .footer__subscribe-text Получайте специальные предложения и новости сервиса
+          .footer__subscribe-form 
+            +subscribe-form
 
 
     section.footer__bottom

@@ -1,3 +1,79 @@
-mixin header 
-  header.header 
+include ../container/container
+include ../logo/logo
+include ../button/button
+
+mixin header(isAuthorized = false) 
+  -
+    const menu = [
+      {
+        name: 'О нас',
+        active: true
+      },
+      {
+        name: 'Услуги',
+        items: [
+          {
+            name: 'Сдать жилье'
+          },
+          {
+            name: 'Снять жилье'
+          },
+        ]
+      },
+      {
+        name: 'Вакансии'
+      },
+      {
+        name: 'Новости'
+      },
+      {
+        name: 'Соглашения',
+        items: [
+          {
+            name: 'Соглашение 1'
+          },
+          {
+            name: 'Соглашение 2'
+          },
+        ]
+      },
+    ]
+  header.header
+    +container
+       .header__content
+        .header__logo 
+          +logo
+        
+        .header__panel
+          nav.header__menu
+            ul.header__menu-list
+              each menuItem in menu
+                - const { name, active, items } = menuItem;
+                li.header__menu-item
+                  a(class="header__menu-link" class=active ? "header__menu-link_current" : "" href="")= name
+                    if items
+                      span.header__menu-link-arrow
+                  if items
+                    ul.header__menu-sublist
+                      each menuSubitem in items
+                        li.header__menu-item.header__menu-item_sub 
+                          a(class="header__menu-link header__menu-link_sub" class=menuSubitem.active ? 'header__menu-link_current' : '' href="")= menuSubitem.name
+
+
+          if isAuthorized
+            .header__user
+              a(class="header__user-name" href="") Юлий Цезарь
+          else
+            .header__buttons
+              .header__button
+                +button('Войти', { view: 'bordered', size: 'small' })
+              .header__button
+                +button('Зарегистрироваться', { size: 'small' })
+
+        button(class="header__menu-button" type="button")
+          span.header__menu-button-line
+          span.header__menu-button-line
+          span.header__menu-button-line
+
+
     

@@ -1,11 +1,13 @@
 extends ../../pug/base
 
 include ../header/header
+include ../menu/menu
 include ../footer/footer
 
 block page
   .page
     +header
+    +menu
 
     main.page__content
       block content

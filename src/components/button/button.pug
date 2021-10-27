@@ -1,0 +1,4 @@
+mixin button(text, modifiers = {}, isLink = false)
+  - const classes = getModifiers('button', modifiers);
+  #{ isLink ? "a" : "button"}(class="button" class=classes)
+    span.button__text= text

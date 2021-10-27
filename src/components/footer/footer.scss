@@ -81,6 +81,7 @@
   &__menu-list {
     margin: 0;
     padding: 0;
+    
     list-style: none;
   }
 
@@ -93,9 +94,8 @@
   &__menu-link {
     font-size: var(--text-font-size);
     line-height: 17px;
-    color: var(--color-dark-50);
-
     text-decoration: none;
+    color: var(--color-dark-50);
   }
 
   &__column-title {

@@ -1,0 +1,75 @@
+.button {
+  $p: &;
+
+  position: relative;
+
+  display: inline-flex;
+  align-items: stretch;
+  height: 44px;
+  padding: 0;
+
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 700;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  color: white;
+
+  background-color: transparent;
+  border: 0;
+  border-radius: 22px;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: var(--gradient-primary);
+    border-radius: 22px;
+
+    transition: opacity var(--default-transition);
+  }
+
+  &:hover {
+    &:before {
+      opacity: .5;
+    }
+  }
+
+  &_view_bordered {
+    #{$p}__text {
+      margin: 2px;
+
+      color: var(--color-primary);
+
+      background-color: white;
+    }
+  }
+
+  &_size_small {
+    height: 34px;
+  }
+
+  &_width_full {
+    width: 100%;
+  }
+
+  &__text {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 0 20px;
+
+    border-radius: 22px;
+  }
+}

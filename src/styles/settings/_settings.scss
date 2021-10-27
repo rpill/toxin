@@ -7,6 +7,7 @@
   --color-dark-5: #f3f4f5;
   --color-primary: #bc9cff;
   --color-secondary: #6fcf97;
+  --color-tertiary: #8ba4f9;
 
   --font-body: 'Montserrat', 'Arial', sans-serif;
   --text-font-size: 14px;
@@ -15,8 +16,9 @@
   --max-row-width: 1210px;
 
   --border-radius: 4px;
-
-  --default-transition: .4s ease-in-out;
+  --box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  --gradient-primary: linear-gradient(180deg, var(--color-primary) 0%, var(--color-tertiary) 100%);
+  --default-transition: .3s ease-in-out;
 }
 
 $grid-breakpoints: (
@@ -52,4 +54,20 @@ $grid-breakpoints: (
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
         + "Available breakpoints are: #{map-keys($grid-breakpoints)}.";
   }
+}
+
+@mixin arrow-down {
+    content: '';
+
+    display: block;
+    width: 7px;
+    height: 7px;
+
+    border-color: var(--color-dark-50);
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+
+    transform: translateY(-2px) rotate(45deg);
+
+    transition: border-color var(--default-transition);
 }
