@@ -1,15 +1,18 @@
-extends ../components/page/page
+extends ../pug/base
 
 include ../components/container/container
 include ../components/h1/h1
 include ../components/h2/h2
 include ../components/h3/h3
 
-block content
-  +container
-    +h1('This one is the sub-section or widget title')
-    +h2('Next one is the item title inside widgets')
-    +h3('This is a label or CTA text')
+block title
+  | Home Page
+
+block main
+  +container()
+    +h1({text: 'This one is the sub-section or widget title'})
+    +h2({text: 'Next one is the item title inside widgets'})
+    +h3({text: 'This is a label or CTA text'})
 
     p 
       | This is the body text which is used for most 

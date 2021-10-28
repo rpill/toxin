@@ -1,2 +1,5 @@
-mixin h2(text)
-  h2.h2= text
+//-
+  options.text = текст заголовка
+
+mixin h2(options={})
+  h2.h2= options.text

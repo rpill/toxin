@@ -2,75 +2,48 @@ include ../container/container
 include ../logo/logo
 include ../button/button
 
-mixin header(isAuthorized = false) 
-  -
-    const menu = [
-      {
-        name: 'О нас',
-        active: true
-      },
-      {
-        name: 'Услуги',
-        items: [
-          {
-            name: 'Сдать жилье'
-          },
-          {
-            name: 'Снять жилье'
-          },
-        ]
-      },
-      {
-        name: 'Вакансии'
-      },
-      {
-        name: 'Новости'
-      },
-      {
-        name: 'Соглашения',
-        items: [
-          {
-            name: 'Соглашение 1'
-          },
-          {
-            name: 'Соглашение 2'
-          },
-        ]
-      },
-    ]
+//-
+  options.menuItems = массив элементов меню
+  options.isAuthorized = авторизован ли пользователь
+
+mixin header(options={})
+  if !options.isAuthorized
+    - options.isAuthorized = false
+  if !options.menuItems
+    - options.menuItems = []
+
   header.header
-    +container
+    +container()
        .header__content
         .header__logo 
-          +logo
+          +logo()
         
         .header__panel
           nav.header__menu
             ul.header__menu-list
-              each menuItem in menu
-                - const { name, active, items } = menuItem;
+              each menuItem in options.menuItems
                 li.header__menu-item
-                  a(class="header__menu-link" class=active ? "header__menu-link_current" : "" href="")= name
-                    if items
+                  a.header__menu-link(class=menuItem.active ? "header__menu-link_current" : "" href="")= menuItem.name
+                    if menuItem.items
                       span.header__menu-link-arrow
-                  if items
+                  if menuItem.items
                     ul.header__menu-sublist
-                      each menuSubitem in items
+                      each menuSubitem in menuItem.items
                         li.header__menu-item.header__menu-item_sub 
-                          a(class="header__menu-link header__menu-link_sub" class=menuSubitem.active ? 'header__menu-link_current' : '' href="")= menuSubitem.name
+                          a.header__menu-link(class="header__menu-link_sub" class=menuSubitem.active ? 'header__menu-link_current' : '' href="")= menuSubitem.name
 
 
-          if isAuthorized
+          if options.isAuthorized
             .header__user
-              a(class="header__user-name" href="") Юлий Цезарь
+              a.header__user-name(href="") Юлий Цезарь
           else
             .header__buttons
               .header__button
-                +button('Войти', { view: 'bordered', size: 'small' })
+                +button({text: 'Войти', modifiers: {view: 'bordered', size: 'small'}})
               .header__button
-                +button('Зарегистрироваться', { size: 'small' })
+                +button({text: 'Зарегистрироваться', modifiers: {size: 'small'}})
 
-        button(class="header__menu-button" type="button")
+        button.header__menu-button(type="button")
           span.header__menu-button-line
           span.header__menu-button-line
           span.header__menu-button-line

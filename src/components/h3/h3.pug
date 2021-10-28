@@ -1,3 +1,10 @@
-mixin h3(text, modifiers={})
-  - const classes = getModifiers('h3', modifiers);
-  h3(class="h3" class=classes)= text
+//-
+  options.text = текст заголовка
+  options.modifiers = модификаторы заголовка
+
+mixin h3(options={})
+  if !options.modifiers
+    - options.modifiers = {}
+
+  - const classes = getModifiers('h3', options.modifiers);
+  h3.h3(class=classes)= options.text

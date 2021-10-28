@@ -1,4 +1,13 @@
-mixin button(text, modifiers = {}, isLink = false)
-  - const classes = getModifiers('button', modifiers);
-  #{ isLink ? "a" : "button"}(class="button" class=classes)
-    span.button__text= text
+//-
+  options.text - текст
+  options.isSubmit - тип кнопки Submit
+  options.modifiers - модификаторы кнопки
+
+mixin button(options={})
+  if !options.modifiers
+    - options.modifiers = {}
+
+  - const classes = getModifiers('button', options.modifiers);
+
+  button.button(class=classes type = options.isSubmit ? 'submit' : false)
+    span.button__text= options.text || 'Click me'

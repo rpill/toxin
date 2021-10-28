@@ -1,72 +1,46 @@
 include ../button/button
 include ../social/social
 
-mixin menu(isAuthorized = false)
-  -
-    const menu = [
-      {
-        name: 'О нас'
-      },
-      {
-        name: 'Услуги',
-        items: [
-          {
-            name: 'Сдать жилье'
-          },
-          {
-            name: 'Снять жилье'
-          },
-        ]
-      },
-      {
-        name: 'Вакансии'
-      },
-      {
-        name: 'Новости'
-      },
-      {
-        name: 'Соглашения',
-        items: [
-          {
-            name: 'Соглашение 1'
-          },
-          {
-            name: 'Соглашение 2'
-          },
-        ]
-      },
-    ]
+//-
+  options.menuItems = массив элементов меню
+  options.isAuthorized = авторизован ли пользователь
+
+mixin menu(options={})
+  if !options.isAuthorized
+    - options.isAuthorized = false
+  if !options.menuItems
+    - options.menuItems = []
+
   .menu
     .menu__overlay 
     .menu__container 
-      button(class="menu__close" type="button")
+      button.menu__close(type="button")
         span.menu__close-line
         span.menu__close-line
 
       .menu__content
-        if isAuthorized
+        if options.isAuthorized
           .menu__user
-            a(class="menu__user-name" href="") Юлий Цезарь
+            a.menu__user-name(href="") Юлий Цезарь
         else
           .menu__buttons
             .menu__button
-              +button('Войти', { view: 'bordered', size: 'small', width: 'full' })
+              +button({text: 'Войти', modifiers: {view: 'bordered', size: 'small', width: 'full'}})
             .menu__button
-              +button('Зарегистрироваться', { size: 'small', width: 'full' })
+              +button({text: 'Зарегистрироваться', modifiers: {size: 'small', width: 'full'}})
 
         nav.menu__items
             ul.menu__list
-              each menuItem in menu
-                - const { name, items } = menuItem;
+              each menuItem in options.menuItems
                 li.menu__item
-                  a(class="menu__link" href="")= name
-                    if items
+                  a.menu__link(href="")= menuItem.name
+                    if menuItem.items
                       span.menu__link-arrow
-                  if items
+                  if menuItem.items
                     ul.menu__sublist
-                      each menuSubitem in items
+                      each menuSubItem in menuItem.items
                         li.menu__item.menu__item_sub 
-                          a(class="menu__link menu__link_sub" href="")= menuSubitem.name
+                          a.menu__link(class="menu__link_sub" href="")= menuSubItem.name
 
         .menu__bottom
-          +social
+          +social()

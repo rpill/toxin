@@ -1,10 +1,10 @@
-.page {
+.layout {
   display: flex;
   flex: 1 0 auto;
   flex-direction: column;
   min-height: 100vh;
 
-  &__content {
+  &__main {
     flex-grow: 1;
     flex-shrink: 0;
   }

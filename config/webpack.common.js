@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const fs = require('fs');
@@ -17,33 +18,33 @@ module.exports = {
   },
   plugins: [
 
-    new CopyWebpackPlugin({
-      patterns: [{
-          from: path.posix.join(
-            path.resolve(__dirname, paths.src, 'components').replace(/\\/g, "/"),
-            "*/images/*"
-          ),
-          to({
-            context,
-            absoluteFilename
-          }) {
-            return `${path.relative(path.join(context, 'src'), absoluteFilename)}`;
-          },
-          noErrorOnMissing: true,
-        },
-        {
-          from: `${paths.src}/fonts`,
-          to: './fonts'
-        },
-      ],
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
     }),
+
+    // new CopyWebpackPlugin({
+    //   patterns: [{
+    //       from: path.posix.join(
+    //         path.resolve(__dirname, paths.src, 'components').replace(/\\/g, "/"),
+    //         "*/images/*"
+    //       ),
+    //       to({
+    //         context,
+    //         absoluteFilename
+    //       }) {
+    //         return `${path.relative(path.join(context, 'src'), absoluteFilename)}`;
+    //       },
+    //       noErrorOnMissing: true,
+    //     },
+    //   ],
+    // }),
 
     ...pages.map(page => new HtmlWebpackPlugin({
       template: `${paths.pages}/${page}`,
       filename: `./${page.replace(/\.pug/,'.html')}`,
       inject: 'body',
       minify: false,
-
       templateParameters: {
         getModifiers: (className, modifiers) => (
           Object.entries(modifiers).map((item) => `${className}_${item.join('_')}`)
@@ -72,6 +73,24 @@ module.exports = {
             presets: ['@babel/preset-env'],
             plugins: ['@babel/plugin-proposal-object-rest-spread']
           }
+        }
+      },
+
+      // Fonts
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[hash][ext][query]'
+        }
+      },
+
+      // Images
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[hash][ext][query]'
         }
       },
     ],

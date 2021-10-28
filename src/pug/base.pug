@@ -1,8 +1,23 @@
+include ./data
+
+include ../components/layout/layout
+include ../components/header/header
+include ../components/menu/menu
+include ../components/footer/footer
+
 doctype html
 html(lang='ru')
   head
-    title Toxin
     meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title
+      block title
   body
-    block page
+    +layout()
+      +header({ menuItems: global.headerMenuItems })
+      +menu({ menuItems: global.headerMenuItems })
+
+      +layout_main()
+        block main
+
+      +footer({ menuItems: global.footerMenuItems })

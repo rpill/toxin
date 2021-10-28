@@ -1,2 +1,6 @@
-mixin label(text, id)
-  label(for=id class="label")= text
+//-
+  options.id = id лейбла
+  options.text = текст лейбла
+  
+mixin label(options={})
+  label.label(for=options.id)= options.text

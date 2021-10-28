@@ -12,7 +12,7 @@ module.exports = merge(common, {
     path: paths.build,
     publicPath: '/',
     filename: 'js/[name].[contenthash].bundle.js',
-  },
+  },  
   module: {
     rules: [
       {
@@ -24,8 +24,6 @@ module.exports = merge(common, {
             options: {
               importLoaders: 2,
               sourceMap: false,
-              modules: false,
-              url: false,
             },
           },
           'postcss-loader',
@@ -43,9 +41,16 @@ module.exports = merge(common, {
   optimization: {
     minimize: true,
     minimizer: [new CssMinimizerPlugin(), '...'],
-    runtimeChunk: {
-      name: 'runtime',
-    },
+    splitChunks: {
+      cacheGroups: {
+          vendor: {
+              name: 'vendors',
+              test: /node_modules/,
+              chunks: 'all',
+              enforce: true
+          }
+      }
+    }
   },
   performance: {
     hints: false,

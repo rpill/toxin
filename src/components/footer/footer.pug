@@ -4,66 +4,42 @@ include ../social/social
 include ../h3/h3
 include ../subscribe-form/subscribe-form
 
-mixin footer 
-  -
-    const menu = [
-      {
-        title: 'Навигация',
-        items: [
-          'О нас',
-          'Новости',
-          'Служба поддержки',
-          'Услуги',
-        ]
-      },
-      {
-        title: 'О нас',
-        items: [
-          'О сервисе',
-          'Наша команда',
-          'Вакансии',
-          'Инвесторы',
-        ]
-      },
-      {
-        title: 'Служба поддержки',
-        items: [
-          'Соглашения',
-          'Сообщества',
-          'Связь с нами',
-        ]
-      },
-    ]
+//-
+  options.menuItems = массив элементов меню
+
+mixin footer(options={})
+  if !options.menuItems
+    - options.menuItems = []
+
   footer.footer
-    +container
+    +container()
       section.footer__content
         section.footer__info
           .footer__logo 
-            +logo
+            +logo()
           .footer__info-text Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
 
         section.footer__menu 
-          each column in menu
-            - const { title, items } = column;
+          each column in options.menuItems
             section.footer__menu-column
               .footer__column-title
-                +h3(title, { text: 'upper' })
+                +h3({text: column.title, modifiers: {case: 'upper'}})
               ul.footer__menu-list
-                each item in items
+                each name in column.items
                   li.footer__menu-item 
-                    a(class="footer__menu-link" href="")= item
+                    a.footer__menu-link(href="")= name
 
         section.footer__subscribe
           .footer__column-title
-            +h3('Подписка', { text: 'upper' })
+            +h3({text: 'Подписка', modifiers: {case: 'upper'}})
           .footer__subscribe-text Получайте специальные предложения и новости сервиса
           .footer__subscribe-form 
-            +subscribe-form
+            +subscribe-form()
 
 
     section.footer__bottom
-      +container
+      +container()
         .footer__bottom-content
           .footer__copyright Copyright © 2018 Toxin отель. Все права защищены.
           .footer__social 
-            +social
+            +social()

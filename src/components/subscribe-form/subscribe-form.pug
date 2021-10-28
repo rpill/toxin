@@ -1,8 +1,12 @@
 include ../input/input
 
-mixin subscribe-form
-  form(class="subscribe-form" action="")
+mixin subscribe-form()
+  form.subscribe-form(action="")
     .subscribe-form__input 
-      +input('Email', 'subscribe-email')
-    button(class="subscribe-form__button" type="submit")
+      +input({
+        name: 'email', 
+        type: 'text', 
+        placeholder: 'Email'
+        })
+    button.subscribe-form__button(type="submit")
       include ./images/arrow-forward.svg

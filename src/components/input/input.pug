@@ -1,2 +1,11 @@
-mixin input(placeholder, id)
-  input(class="input" type="text" id=id placeholder=placeholder)
+//-
+  options.name - attribute name
+  options.type - attribute placeholder
+  options.placeholder - attribute placeholder
+  options.id - attribute id
+
+mixin input(options={})
+  input.input(type=options.type
+    name=options.name 
+    id=options.id 
+    placeholder=options.placeholder)
