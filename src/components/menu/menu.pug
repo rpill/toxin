@@ -1,0 +1,72 @@
+include ../button/button
+include ../social/social
+
+mixin menu(isAuthorized = false)
+  -
+    const menu = [
+      {
+        name: 'О нас'
+      },
+      {
+        name: 'Услуги',
+        items: [
+          {
+            name: 'Сдать жилье'
+          },
+          {
+            name: 'Снять жилье'
+          },
+        ]
+      },
+      {
+        name: 'Вакансии'
+      },
+      {
+        name: 'Новости'
+      },
+      {
+        name: 'Соглашения',
+        items: [
+          {
+            name: 'Соглашение 1'
+          },
+          {
+            name: 'Соглашение 2'
+          },
+        ]
+      },
+    ]
+  .menu
+    .menu__overlay 
+    .menu__container 
+      button(class="menu__close" type="button")
+        span.menu__close-line
+        span.menu__close-line
+
+      .menu__content
+        if isAuthorized
+          .menu__user
+            a(class="menu__user-name" href="") Юлий Цезарь
+        else
+          .menu__buttons
+            .menu__button
+              +button('Войти', { view: 'bordered', size: 'small', width: 'full' })
+            .menu__button
+              +button('Зарегистрироваться', { size: 'small', width: 'full' })
+
+        nav.menu__items
+            ul.menu__list
+              each menuItem in menu
+                - const { name, items } = menuItem;
+                li.menu__item
+                  a(class="menu__link" href="")= name
+                    if items
+                      span.menu__link-arrow
+                  if items
+                    ul.menu__sublist
+                      each menuSubitem in items
+                        li.menu__item.menu__item_sub 
+                          a(class="menu__link menu__link_sub" href="")= menuSubitem.name
+
+        .menu__bottom
+          +social
