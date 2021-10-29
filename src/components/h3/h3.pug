@@ -1,10 +1,5 @@
 //-
   options.text = текст заголовка
-  options.modifiers = модификаторы заголовка
 
 mixin h3(options={})
-  if !options.modifiers
-    - options.modifiers = {}
-
-  - const classes = getModifiers('h3', options.modifiers);
-  h3.h3(class=classes)= options.text
+  h3.h3= options.text

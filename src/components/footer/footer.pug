@@ -23,7 +23,7 @@ mixin footer(options={})
           each column in options.menuItems
             section.footer__menu-column
               .footer__column-title
-                +h3({text: column.title, modifiers: {case: 'upper'}})
+                +h3({text: column.title})
               ul.footer__menu-list
                 each name in column.items
                   li.footer__menu-item 
@@ -31,7 +31,7 @@ mixin footer(options={})
 
         section.footer__subscribe
           .footer__column-title
-            +h3({text: 'Подписка', modifiers: {case: 'upper'}})
+            +h3({text: 'Подписка'})
           .footer__subscribe-text Получайте специальные предложения и новости сервиса
           .footer__subscribe-form 
             +subscribe-form()

@@ -1,0 +1,52 @@
+include ../h1/h1
+
+mixin ui-kit()
+  .ui-kit
+    block
+
+mixin ui-kit_page(title)
+  .ui-kit__page
+    +ui-kit_container()
+      .ui-kit__page-title
+        +h1({text: title})
+    block
+
+mixin ui-kit_section()
+  section.ui-kit__section
+    block
+
+mixin ui-kit_container()
+  .ui-kit__container
+    block
+
+mixin ui-kit_column()
+  .ui-kit__column
+    block
+
+mixin ui-kit_item(modifiers={})
+  - const classes = getModifiers('ui-kit__item', modifiers);
+  .ui-kit__item(class=classes)
+    block
+
+mixin ui-kit_color(options={})
+  .ui-kit__color
+    .ui-kit__color-canvas(style={background: options.color})
+    .ui-kit__color-content 
+      .ui-kit__color-name= options.name
+      .ui-kit__color-hex= options.hex
+
+//-
+  options.name = название
+  options.fz = размер шрифта
+  options.lh = междустрочный пробел
+  options.mw = максимальная ширина текста
+
+mixin ui-kit_typography(options={})
+  if !options.mw
+    - options.mw = '100%'
+
+  .ui-kit__typography
+    .ui-kit__typography-name(
+      style={'font-size': options.fz + 'px', 'line-height': options.lh + 'px'})= options.name
+    .ui-kit__typography-text(style={'max-width': options.mw})
+      block

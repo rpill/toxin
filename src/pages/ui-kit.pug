@@ -1,0 +1,74 @@
+extends ../pug/base
+
+include ../components/ui-kit/ui-kit
+include ../components/h1/h1
+include ../components/h2/h2
+include ../components/h3/h3
+
+block title
+  | UI Kit
+
+block main
+  - 
+    const colors = [
+      {
+        name: 'Dark Shade 100%',
+        color: '#1f2041',
+        hex: '#1f2041'
+      },
+      {
+        name: 'Dark Shade 75%',
+        color: 'rgba(31, 32, 65, 0.75)',
+        hex: '#1f2041'
+      },
+      {
+        name: 'Dark Shade 50%',
+        color: 'rgba(31, 32, 65, 0.5)',
+        hex: '#1f2041'
+      },
+      {
+        name: 'Dark Shade 25%',
+        color: 'rgba(31, 32, 65, 0.25)',
+        hex: '#1f2041'
+      },
+      {
+        name: 'Dark Shade 5%',
+        color: 'rgba(31, 32, 65, 0.05)',
+        hex: '#1f2041'
+      },
+      {
+        name: 'Purple',
+        color: '#bc9cff',
+        hex: '#bc9cff'
+      },
+      {
+        name: 'Green',
+        color: '#6fcf97',
+        hex: '#6fcf97'
+      },
+    ]
+
+  +ui-kit()
+    +ui-kit_page('Colors & Type')
+      +ui-kit_section()
+        +ui-kit_container()
+          +ui-kit_column()
+            each color in colors 
+              +ui-kit_item({mb: 20})
+                +ui-kit_color(color)
+                
+          +ui-kit_column()
+            +ui-kit_item({mb: 50})
+              +ui-kit_typography({name: 'H1', fz: 24, lh: 29, mw: '370px'})
+                +h1({text: 'This one is the sub-section or widget title'})
+            +ui-kit_item({mb: 50})
+              +ui-kit_typography({name: 'H2', fz: 19, lh: 23, mw: '315px'})
+                +h2({text: 'Next one is the item title inside widgets'})
+            +ui-kit_item({mb: 50})
+              +ui-kit_typography({name: 'H3', fz: 12, lh: 15})
+                +h3({text: 'This is a label or CTA text'})
+            +ui-kit_item({mb: 50})
+              +ui-kit_typography({name: 'Body', fz: 14, lh: 24, mw: '305px'})
+                div 
+                  | This is the body text which is used for most 
+                  | of the design, like paragraphs, lists, etc.
