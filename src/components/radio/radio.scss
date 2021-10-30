@@ -3,7 +3,6 @@
 .radio {
   $p: &;
 
-  display: flex;
   cursor: pointer;
 
   &__input {
@@ -40,8 +39,6 @@
   }
 
   &__circle {
-    position: relative;
-
     display: flex;
     align-items: center;
     justify-content: center;
