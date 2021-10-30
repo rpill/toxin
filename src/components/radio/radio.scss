@@ -19,6 +19,12 @@
     border: 0;
     clip: rect(0, 0, 0, 0);
 
+    &:focus + #{$p}__container {
+      #{$p}__circle {
+        border-color: $color-dark-50;
+      }
+    }
+
     &:checked + #{$p}__container {
       #{$p}__circle {
         border-color: $color-primary;
