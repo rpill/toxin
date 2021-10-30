@@ -9,6 +9,7 @@ include ../components/input/input
 include ../components/checkbox/checkbox
 include ../components/radio/radio
 include ../components/toggle/toggle
+include ../components/rate-button/rate-button
 
 block title
   | UI Kit
@@ -108,4 +109,9 @@ block main
               +toggle({
                 name: 'spec',
                 text: 'Получать спецпредложения',
+              })
+            +ui-kit_item({mb: 20})
+              +rate-button({
+                name: 'rating',
+                rating: 4
               })

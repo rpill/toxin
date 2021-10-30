@@ -1,0 +1,61 @@
+@import '~styles/variables';
+
+.rate-button {
+  $p: &;
+
+  position: relative;
+  width: 116px;
+  height: 19px;
+  background-image: url('./images/star-off.svg');
+  background-size: 20px 19px;
+  background-repeat: space;
+
+  &__input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+
+    &:checked + #{$p}__star {
+      background-image: url('./images/star-on.svg');
+    }
+  }
+
+  &__star {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    height: 100%;
+
+    background-size: 20px 19px;
+    background-repeat: space;
+
+    &:hover {
+      background-image: url('./images/star-on.svg');
+
+      & ~ #{$p}__star {
+        background-image: url('./images/star-off.svg');
+      }
+    }
+
+    @for $i from 1 through 5 {
+      &:nth-of-type(#{$i}) {
+        z-index: 6 - $i;
+        @if $i == 1 {
+          width: 24px;
+        } @else {
+          width: 24 * $i - 4 + px;
+        }
+      }
+    }
+  }
+}

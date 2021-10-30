@@ -1,0 +1,16 @@
+//-
+  options.rating = от 1 до 5
+
+mixin rate-button(options={})
+  .rate-button
+    - i = 1;
+    while i <= 5
+      input.rate-button__input(
+        type="radio"
+        name=options.name 
+        value=`${i}`
+        id=`${options.name}-${i}`
+        checked=options.rating == i ? true : false
+      )
+      label.rate-button__star(for=`${options.name}-${i}`)
+      - i += 1;
