@@ -1,0 +1,15 @@
+//-
+  options.name = имя инпута
+  options.checked = true/false checked
+  options.text = текст
+  
+mixin toggle(options={})
+  label.toggle
+    input.toggle__input(
+      type="checkbox"
+      name=options.name
+      checked=options.checked
+    )
+    .toggle__button
+    .toggle__body 
+      .toggle__text= options.text
