@@ -19,8 +19,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   
-  font-family: var(--font-body);
-  font-size: var(--text-font-size);
-  line-height: var(--text-line-height);
-  color: var(--color-dark-75);
+  font-family: $font-body;
+  font-size: $text-font-size;
+  line-height: $text-line-height;
+  color: $color-dark-75;
 }

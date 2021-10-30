@@ -5,7 +5,10 @@
   options.id - attribute id
 
 mixin input(options={})
-  input.input(type=options.type
-    name=options.name 
-    id=options.id 
-    placeholder=options.placeholder)
+  .input
+    input.input__control(
+      type=options.type
+      name=options.name 
+      id=options.id 
+      placeholder=options.placeholder
+    )

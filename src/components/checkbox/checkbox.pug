@@ -1,0 +1,20 @@
+//-
+  options.name = имя инпута
+  options.checked = true/false checked
+  options.label = лейбл (жирный текст)
+  options.text = текст
+  
+mixin checkbox(options={})
+  - const hasLabel = options.label ? true : false;
+
+  label.checkbox
+    input.checkbox__input(
+      type="checkbox"
+      name=options.name
+      checked=options.checked
+    )
+    .checkbox__box
+    .checkbox__body 
+      if hasLabel
+        .checkbox__label= options.label
+      .checkbox__text(class=hasLabel ? 'checkbox__text_size_small' : '')= options.text

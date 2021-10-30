@@ -1,8 +1,10 @@
+@import '~styles/variables';
+
 .h1 {
   margin: 0;
 
   font-size: 24px;
   line-height: 29px;
   font-weight: 700;
-  color: var(--color-dark);
+  color: $color-dark;
 }

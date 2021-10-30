@@ -4,7 +4,7 @@
   $p: &;
 
   background-color: white;
-  box-shadow: var(--box-shadow);
+  box-shadow: $box-shadow;
 
   &__content {
     display: flex;
@@ -64,14 +64,14 @@
     align-items: stretch;
     padding: 0 10px;
 
-    font-size: var(--text-font-size);
+    font-size: $text-font-size;
     line-height: 17px;
     text-decoration: none;
-    color: var(--color-dark-50);
+    color: $color-dark-50;
 
     &_current {
       font-weight: 700;
-      color: var(--color-dark-75);
+      color: $color-dark-75;
     }
 
     &_sub {
@@ -87,7 +87,7 @@
     justify-content: center;
     width: 24px;
 
-    transition: transform var(--default-transition);
+    transition: $default-transition;
 
     &:after {
       @include arrow-down;
@@ -105,11 +105,11 @@
     list-style: none;
     transform: translateY(100%);
     background-color: white;
-    box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius);
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--default-transition), visibility var(--default-transition);
+    transition: opacity $default-transition, visibility $default-transition;
   }
 
   &__buttons {
@@ -133,15 +133,15 @@
       height: 30px;
       margin-right: 20px;
 
-      background-color: var(--color-dark-10);
+      background-color: $color-dark-10;
     }
   }
 
   &__user-name {
-    font-size: var(--text-font-size);
+    font-size: $text-font-size;
     line-height: 17px;
     text-decoration: none;
-    color: var(--color-dark-50);
+    color: $color-dark-50;
   }
 
   &__menu-button {
@@ -165,7 +165,7 @@
     width: 100%;
     height: 2px;
 
-    background: var(--gradient-primary);
+    background: $gradient-primary;
     border-radius: 1px;
 
     &:not(:last-child) {

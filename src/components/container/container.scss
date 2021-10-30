@@ -1,6 +1,8 @@
+@import '~styles/variables';
+
 .container {
   width: 100%;
-  max-width: var(--max-row-width);
+  max-width: $max-row-width;
   margin: 0 auto;
   padding: 0 25px;
 }

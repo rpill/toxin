@@ -1,0 +1,85 @@
+@import '~styles/variables';
+
+.radio {
+  $p: &;
+
+  display: flex;
+  cursor: pointer;
+
+  &__input {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+
+    &:checked + #{$p}__container {
+      #{$p}__circle {
+        border-color: $color-primary;
+
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      #{$p}__text {
+        color: $color-dark-75;
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+  }
+
+  &__circle {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+
+    border: 1px solid $color-dark-25;
+    border-radius: 50%;
+
+    transition: border-color $default-transition;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 12px;
+      height: 12px;
+
+      background: $gradient-primary;
+      border-radius: 50%;
+
+      opacity: 0;
+      transition: opacity $default-transition;
+    }
+  }
+
+  &__body {
+    position: relative;
+    top: 1px;
+
+    padding-left: 10px;
+  }
+
+  &__text {
+
+    font-size: $text-font-size;
+    line-height: 18px;
+    color: $color-dark-50;
+    transition: color $default-transition;
+  }
+}

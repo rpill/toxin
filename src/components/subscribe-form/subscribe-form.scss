@@ -1,3 +1,5 @@
+@import '~styles/variables';
+
 .subscribe-form {
   position: relative;
 
@@ -18,7 +20,7 @@
 
     background-color: white;
     border: 0;
-    border-radius: var(--border-radius);
+    border-radius: $border-radius;
     cursor: pointer;
   }
 }

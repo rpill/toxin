@@ -25,7 +25,7 @@
     opacity: 0;
     visibility: hidden;
 
-    transition: opacity var(--default-transition), visibility var(--default-transition);
+    transition: opacity $default-transition, visibility $default-transition;
   }
 
   &__container {
@@ -42,7 +42,7 @@
 
     transform: translate(100%, 0);
 
-    transition: transform var(--default-transition);
+    transition: transform $default-transition;
   }
 
   &__close {
@@ -64,7 +64,7 @@
     width: 100%;
     height: 2px;
 
-    background: var(--gradient-primary);
+    background: $gradient-primary;
     border-radius: 1px;
 
     transform-origin: right;
@@ -104,14 +104,14 @@
   &__user {
     padding-bottom: 10px;
 
-    border-bottom: 1px solid var(--color-dark-10);
+    border-bottom: 1px solid $color-dark-10;
   }
 
   &__user-name {
-    font-size: var(--text-font-size);
+    font-size: $text-font-size;
     line-height: 17px;
     text-decoration: none;
-    color: var(--color-dark-50);
+    color: $color-dark-50;
   }
 
   &__list {
@@ -136,18 +136,18 @@
     font-size: 17px;
     line-height: 20px;
     text-decoration: none;
-    color: var(--color-dark-50);
+    color: $color-dark-50;
 
     &_current {
       font-weight: 700;
-      color: var(--color-dark-75);
+      color: $color-dark-75;
     }
 
     &_sub {
       padding-left: 10px;
 
-      font-size: var(--text-font-size);
-      line-height: var(--text-line-height);
+      font-size: $text-font-size;
+      line-height: $text-line-height;
       white-space: nowrap;
     }
   }
@@ -158,7 +158,7 @@
     justify-content: center;
     width: 24px;
 
-    transition: transform var(--default-transition);
+    transition: transform $default-transition;
 
     &:after {
       @include arrow-down;

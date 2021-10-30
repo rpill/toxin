@@ -1,31 +1,24 @@
-:root {
-  --color-dark: #1f2041;
-  --color-dark-rgb: #{HexToRGB(var(--color-dark))};
-  --color-dark-75: #575871;
-  --color-dark-50: #8f90a0;
-  --color-dark-25: #c7c7cf;
-  --color-dark-10: #e9e9ec;
-  --color-dark-5: #f3f4f5;
-  // --color-dark-75: rgba(var(--color-dark-rgb), 0.75);
-  // --color-dark-50: rgba(var(--color-dark-rgb), 0.50);
-  // --color-dark-25: rgba(var(--color-dark-rgb), 0.25);
-  // --color-dark-10: rgba(var(--color-dark-rgb), 0.1);
-  // --color-dark-5: rgba(var(--color-dark-rgb), 0.05);
-  --color-primary: #bc9cff;
-  --color-secondary: #6fcf97;
-  --color-tertiary: #8ba4f9;
+$color-dark: #1f2041;
+$color-dark-75: rgba($color-dark, 0.75);
+$color-dark-50: rgba($color-dark, 0.50);
+$color-dark-25: rgba($color-dark, 0.25);
+$color-dark-10: rgba($color-dark, 0.1);
+$color-dark-5: rgba($color-dark, 0.05);
+$color-primary: #bc9cff;
+$color-secondary: #6fcf97;
+$color-tertiary: #8ba4f9;
 
-  --font-body: 'Montserrat', 'Arial', sans-serif;
-  --text-font-size: 14px;
-  --text-line-height: 24px;
+$font-body: 'Montserrat', 'Arial', sans-serif;
+$text-font-size: 14px;
+$text-line-height: 24px;
 
-  --max-row-width: 1210px;
+$max-row-width: 1210px;
 
-  --border-radius: 4px;
-  --box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  --gradient-primary: linear-gradient(180deg, var(--color-primary) 0%, var(--color-tertiary) 100%);
-  --default-transition: .3s ease-in-out;
-}
+$border-radius: 4px;
+$box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+$gradient-primary: linear-gradient(180deg, $color-primary 0%, $color-tertiary 100%);
+$default-transition: .3s ease-in-out;
+
 
 $grid-breakpoints: (
   xs: 0,
@@ -73,11 +66,11 @@ $grid-breakpoints: (
     width: 7px;
     height: 7px;
 
-    border-color: var(--color-dark-50);
+    border-color: $color-dark-50;
     border-style: solid;
     border-width: 0 2px 2px 0;
 
     transform: translateY(-2px) rotate(45deg);
 
-    transition: border-color var(--default-transition);
+    transition: border-color $default-transition;
 }

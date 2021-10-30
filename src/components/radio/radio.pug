@@ -1,0 +1,16 @@
+//-
+  options.name = имя инпута
+  options.checked = true/false checked
+  options.text = текст
+
+mixin radio(options={})
+  label.radio
+    input.radio__input(
+      type="radio"
+      name=options.name
+      checked=options.checked
+    )
+    .radio__container 
+      .radio__circle
+      .radio__body 
+        .radio__text= options.text

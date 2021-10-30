@@ -1,7 +1,7 @@
 @import '~styles/variables';
 
 .footer {
-  border-top: 1px solid var(--color-dark-10);
+  border-top: 1px solid $color-dark-10;
 
   @include respond-down('md') {
     padding: 120px 0;
@@ -39,9 +39,9 @@
   }
 
   &__info-text {
-    font-size: var(--text-font-size);
-    line-height: var(--text--line-height);
-    color: var(--color-dark-75);
+    font-size: $text-font-size;
+    line-height: $text-line-height;
+    color: $color-dark-75;
 
     @include respond-down('md') {
       display: none;
@@ -94,10 +94,10 @@
   }
 
   &__menu-link {
-    font-size: var(--text-font-size);
+    font-size: $text-font-size;
     line-height: 17px;
     text-decoration: none;
-    color: var(--color-dark-50);
+    color: $color-dark-50;
   }
 
   &__column-title {
@@ -115,15 +115,15 @@
 
   &__subscribe-text {
     margin-bottom: 20px;
-    font-size: var(--text-font-size);
-    line-height: var(--text-line-height);
-    color: var(--color-dark-75);
+    font-size: $text-font-size;
+    line-height: $text-line-height;
+    color: $color-dark-75;
   }
 
   &__bottom {
     padding: 23px 0;
 
-    border-top: 1px solid var(--color-dark-10);
+    border-top: 1px solid $color-dark-10;
 
     @include respond-down('md') {
       padding: 0;
@@ -143,9 +143,9 @@
   }
 
   &__copyright {
-    font-size: var(--text-font-size);
+    font-size: $text-font-size;
     line-height: 17px;
-    color: var(--color-dark-75);
+    color: $color-dark-75;
 
     @include respond-down('md') {
       margin-bottom: 25px;
