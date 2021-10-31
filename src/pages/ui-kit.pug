@@ -14,6 +14,7 @@ include ../components/rate-button/rate-button
 include ../components/range/range
 include ../components/button/button
 include ../components/link/link
+include ../components/pagination/pagination
 
 block title
   | UI Kit
@@ -156,4 +157,8 @@ block main
               +button({
                 text: 'Перейти к оплате', 
                 modifiers: {width: 'full', icon: 'arrow-forward'}
+              })
+            +ui-kit_item({mb: 20})
+              +pagination({
+                
               })
