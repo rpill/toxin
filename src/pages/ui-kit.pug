@@ -13,6 +13,7 @@ include ../components/like-button/like-button
 include ../components/rate-button/rate-button
 include ../components/range/range
 include ../components/button/button
+include ../components/link/link
 
 block title
   | UI Kit
@@ -146,4 +147,13 @@ block main
               +button({
                 text: 'Click me', 
                 modifiers: {view: 'bordered'}
+              })
+            +ui-kit_item({mb: 20})
+              +link({
+                text: 'Click me'
+              })
+            +ui-kit_item({mb: 20})
+              +button({
+                text: 'Перейти к оплате', 
+                modifiers: {width: 'full', icon: 'arrow-forward'}
               })

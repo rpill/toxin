@@ -1,0 +1,6 @@
+//-
+  options.href = ссылка
+  options.text = текст
+
+mixin link(options={})
+  a.link(href=options.href || '#')= options.text

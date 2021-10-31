@@ -52,12 +52,36 @@
     }
   }
 
-  &_size_small {
-    height: 34px;
+  &_size {
+    &_small {
+      height: 34px;
+    }
   }
 
-  &_width_full {
-    width: 100%;
+  &_width {
+    &_full {
+      width: 100%;
+    }
+  }
+
+  &_icon {
+    position: relative;
+
+    &_arrow-forward {
+      &:after {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        right: 14px;
+
+        width: 18px;
+        height: 18px;
+        margin-top: -9px;
+
+        background-image: url('./images/arrow-forward.svg');
+      }
+    }
   }
 
   &__text {

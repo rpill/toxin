@@ -1,0 +1,17 @@
+@import '~styles/variables';
+
+.link {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $color-primary;
+
+  transition: color $default-transition;
+
+  &:hover {
+    color: $color-dark-50;
+  }
+}
