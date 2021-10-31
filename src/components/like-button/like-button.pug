@@ -1,0 +1,11 @@
+//-
+  options.activated - true/false состояние
+  options.count - кол-во лайков
+  
+mixin like-button(options={})
+  button.like-button(
+    type="button"
+    class=options.activated ? 'like-button_activated' : ''
+  )
+    span.like-button__icon
+    span.like-button__count= options.count

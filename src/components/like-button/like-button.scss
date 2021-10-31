@@ -1,0 +1,71 @@
+@import '~styles/variables';
+
+.like-button {
+  $p: &;
+
+  display: flex;
+  align-items: center;
+  min-width: 40px;
+  height: 20px;
+  padding: 0 6px 0 5px;
+
+  background-color: transparent;
+  border: 1px solid $color-dark-25;
+  border-radius: 10px;
+
+  transition: border-color $default-transition;
+
+  cursor: pointer;
+
+  &_activated {
+    border-color: $color-primary;
+
+    #{$p}__icon {
+      &:after {
+        opacity: 1;
+      }
+    }
+
+    #{$p}__count {
+      color: $color-primary;
+    }
+  }
+
+  &__icon {
+    position: relative;
+
+    display: block;
+    flex-shrink: 0;
+    width: 10px;
+    height: 8px;
+    margin-right: 4px;
+
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      height: 100%;
+      width: 100%;
+    }
+
+    &:before {
+      background-image: url('./images/heart-off.svg');
+    }
+
+    &:after {
+      background-image: url('./images/heart-on.svg');
+      opacity: 0;
+
+      transition: opacity $default-transition;
+    }
+  }
+
+  &__count {
+    font-size: 10px;
+    color: $color-dark-25;
+
+    transition: color $default-transition;
+  }
+}

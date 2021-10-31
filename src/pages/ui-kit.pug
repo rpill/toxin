@@ -10,6 +10,7 @@ include ../components/checkbox/checkbox
 include ../components/radio/radio
 include ../components/toggle/toggle
 include ../components/rate-button/rate-button
+include ../components/like-button/like-button
 
 block title
   | UI Kit
@@ -109,6 +110,15 @@ block main
               +toggle({
                 name: 'spec',
                 text: 'Получать спецпредложения',
+              })
+            +ui-kit_item({mb: 20})
+              +like-button({
+                count: 2
+              })
+            +ui-kit_item({mb: 20})
+              +like-button({
+                activated: true,
+                count: 12
               })
             +ui-kit_item({mb: 20})
               +rate-button({
