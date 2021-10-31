@@ -15,6 +15,7 @@ include ../components/range/range
 include ../components/button/button
 include ../components/link/link
 include ../components/pagination/pagination
+include ../components/dropdown/dropdown
 
 block title
   | UI Kit
@@ -132,7 +133,7 @@ block main
             +ui-kit_item({mb: 20})
               +range({
                 title: 'Range Slider',
-                optSlider: {
+                sliderOptions: {
                   range: {
                     min: 0,
                     max: 20000
@@ -159,6 +160,33 @@ block main
                 modifiers: {width: 'full', icon: 'arrow-forward'}
               })
             +ui-kit_item({mb: 20})
-              +pagination({
-                
+              +pagination()
+            +ui-kit_item({mb: 20})
+              +dropdown({
+                items: [
+                  {name: 'Спальни', id: 'bedrooms'},
+                  {name: 'Кровати', id: 'beds'},
+                  {name: 'Ванные комнаты', id: 'bathrooms'}
+                ],
+                dropdownOptions: {
+                  defaultText: 'Количество удобств',
+                  plural: {
+                    bedrooms: ['спальня', 'спальни', 'спален'],
+                    beds: ['кровать', 'кровати', 'кроватей'],
+                    bathrooms: ['ванная комната', 'ванные комната', 'ванных комнат'],
+                  }
+                }
+              })
+            +ui-kit_item({mb: 20})
+              +dropdown({
+                items: [
+                  {name: 'Взрослые', id: 'adults'},
+                  {name: 'Дети', id: 'children'},
+                  {name: 'Младенцы', id: 'babies'}
+                ],
+                hasButtons: true,
+                dropdownOptions: {
+                  defaultText: 'Сколько гостей',
+                  plural: ['гость', 'гостя', 'гостей']
+                }
               })

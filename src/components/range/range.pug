@@ -2,7 +2,7 @@ include ../h3/h3
 
 //-
   options.title = название слайдера
-  options.optSlider = настройки для слайдера:
+  options.sliderOptions = настройки для слайдера:
   {
     range: {
       min: 0,
@@ -22,4 +22,4 @@ mixin range(options={})
         span.range__value.js-range__value-end
 
     .range__slider 
-      .js-range__slider(data-options=JSON.stringify(options.optSlider || {}))
+      .js-range__slider(data-options=JSON.stringify(options.sliderOptions || {}))

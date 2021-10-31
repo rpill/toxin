@@ -1,0 +1,29 @@
+include ../link/link
+
+//-
+  options.items = элементы
+  options.hasButtons = true/false наличия кнопок Очистить и Применить
+  options.optDropdown =
+
+mixin dropdown(options={})
+  if !options.items
+    - options.items = []
+  if !options.hasButtons
+    - options.hasButtons = false
+
+  .dropdown
+    .iqdropdown.js-dropdown(data-options=JSON.stringify(options.dropdownOptions || {}))
+      p.iqdropdown-selection
+        span.iqdropdown-arrow
+      .iqdropdown-menu
+        each item in options.items
+          .iqdropdown-menu-option(data-id=item.id)
+            div 
+              p.iqdropdown-item= item.name
+        
+        if options.hasButtons
+          .iqdropdown-buttons
+            .iqdropdown-button.js-dropdown__clear
+              +link({text: 'Очистить', href: "#"})
+            .iqdropdown-button.js-dropdown__apply
+              +link({text: 'Применить', href: "#"})

@@ -61,14 +61,14 @@ $grid-breakpoints: (
   @return red($hex), green($hex), blue($hex);
 }
 
-@mixin arrow-down {
+@mixin arrow-down($color: $color-dark-50) {
     content: '';
 
     display: block;
     width: 7px;
     height: 7px;
 
-    border-color: $color-dark-50;
+    border-color: $color;
     border-style: solid;
     border-width: 0 2px 2px 0;
 

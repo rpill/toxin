@@ -40,8 +40,10 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "item-quantity-dropdown": "^2.1.0",
     "jquery": "^3.6.0",
     "normalize.css": "^8.0.1",
-    "nouislider": "^15.5.0"
+    "nouislider": "^15.5.0",
+    "plural-ru": "^2.0.2"
   }
 }
