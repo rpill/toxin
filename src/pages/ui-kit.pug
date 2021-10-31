@@ -9,8 +9,10 @@ include ../components/input/input
 include ../components/checkbox/checkbox
 include ../components/radio/radio
 include ../components/toggle/toggle
-include ../components/rate-button/rate-button
 include ../components/like-button/like-button
+include ../components/rate-button/rate-button
+include ../components/range/range
+include ../components/button/button
 
 block title
   | UI Kit
@@ -124,4 +126,24 @@ block main
               +rate-button({
                 name: 'rating',
                 rating: 4
+              })
+            +ui-kit_item({mb: 20})
+              +range({
+                title: 'Range Slider',
+                optSlider: {
+                  range: {
+                    min: 0,
+                    max: 20000
+                  },
+                  start: [5000, 10000]
+                }
+              })
+            +ui-kit_item({mb: 20})
+              +button({
+                text: 'Click me'
+              })
+            +ui-kit_item({mb: 20})
+              +button({
+                text: 'Click me', 
+                modifiers: {view: 'bordered'}
               })

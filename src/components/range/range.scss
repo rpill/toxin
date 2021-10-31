@@ -1,0 +1,70 @@
+@import '~styles/variables';
+
+.range {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__values {
+    font-size: 12px;
+    line-height: 15px;
+    color: $color-dark-50;
+  }
+
+  &__separate {
+    margin: 0 3px;
+  }
+
+  &__slider {
+    .noUi {
+      &-target {
+        background: white;
+        border: 1px solid $color-dark-25;
+        border-radius: 3px;
+        box-shadow: none;
+      }
+      
+      &-horizontal {
+        height: 6px;
+
+        .noUi {
+          &-handle {
+            right: -7px;
+            top: -5px;
+
+            width: 14px;
+            height: 14px;
+          }
+        }
+      }
+
+      &-connects {
+        overflow: initial;
+      }
+
+      &-connect {
+        top: -1px;
+        bottom: -1px;
+
+        height: auto;
+
+        background: $gradient-secondary;
+      }
+
+      &-handle {
+
+        background: $gradient-secondary;
+        border: 2px solid white;
+        border-radius: 50%;
+        box-shadow: none;
+
+        &:before, &:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

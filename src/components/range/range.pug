@@ -1,0 +1,25 @@
+include ../h3/h3
+
+//-
+  options.title = название слайдера
+  options.optSlider = настройки для слайдера:
+  {
+    range: {
+      min: 0,
+      max: 20000
+    },
+    start: [5000, 10000]
+  }
+
+mixin range(options={})
+  .range.js-range
+    .range__header
+      .range__title
+        +h3({text: options.title})
+      .range__values 
+        span.range__value.js-range__value-start 
+        span.range__separate -
+        span.range__value.js-range__value-end
+
+    .range__slider 
+      .js-range__slider(data-options=JSON.stringify(options.optSlider || {}))
