@@ -5,7 +5,8 @@ include ../components/h1/h1
 include ../components/h2/h2
 include ../components/h3/h3
 
-include ../components/input/input
+include ../components/input-field/input-field
+include ../components/date-dropdown/date-dropdown
 include ../components/checkbox-list/checkbox-list
 include ../components/radio-group/radio-group
 include ../components/toggle/toggle
@@ -161,17 +162,51 @@ block main
     +ui-kit_page('Form Elements')
       +ui-kit_section()
         +ui-kit_container()
-          +ui-kit_column()
+          +ui-kit_column({mw: '320px'})
             +ui-kit_item({mb: 20})
-              +input({
-                name: 'email',
-                type: 'text',
-                placeholder: 'Email',
+              +input-field({
+                id: 'email',
+                label: {
+                  text: 'Text Field'
+                },
+                input: {
+                  name: 'email',
+                  type: 'text',
+                  placeholder: 'Email'
+                }
               })
             +ui-kit_item({mb: 20})
-              +checkbox-list(checkboxItems)
+              +dropdown({
+                items: [
+                  {name: 'Взрослые', id: 'adults'},
+                  {name: 'Дети', id: 'children'},
+                  {name: 'Младенцы', id: 'babies'}
+                ],
+                hasButtons: true,
+                dropdownOptions: {
+                  defaultText: 'Сколько гостей',
+                  plural: ['гость', 'гостя', 'гостей']
+                }
+              })
             +ui-kit_item({mb: 20})
-              +checkbox-list(richCheckboxItems)
+              +input-field({
+                id: 'bd',
+                label: {
+                  text: 'Masked text field'
+                },
+                input: {
+                  name: 'dates',
+                  type: 'text',
+                  placeholder: 'ДД.ММ.ГГГГ',
+                  mask: '99.99.9999'
+                }
+              })
+            +ui-kit_item({mb: 20})
+              +date-dropdown()
+
+          +ui-kit_column({mw: '260px'})
+            +ui-kit_item({mb: 20})
+              +checkbox-list(checkboxItems)
             +ui-kit_item({mb: 20})
               +radio-group(radioItems)
             +ui-kit_item({mb: 20})
@@ -193,6 +228,7 @@ block main
                 name: 'rating',
                 rating: 4
               })
+          +ui-kit_column({mw: '320px'})
             +ui-kit_item({mb: 20})
               +range({
                 title: 'Range Slider',
@@ -224,58 +260,67 @@ block main
               })
             +ui-kit_item({mb: 20})
               +pagination()
-            +ui-kit_item({mb: 20})
-              +dropdown({
-                items: [
-                  {name: 'Спальни', id: 'bedrooms'},
-                  {name: 'Кровати', id: 'beds'},
-                  {name: 'Ванные комнаты', id: 'bathrooms'}
-                ],
-                dropdownOptions: {
-                  defaultText: 'Количество удобств',
-                  plural: {
-                    bedrooms: ['спальня', 'спальни', 'спален'],
-                    beds: ['кровать', 'кровати', 'кроватей'],
-                    bathrooms: ['ванная комната', 'ванные комната', 'ванных комнат'],
-                  }
+      +ui-kit_section()
+        +ui-kit_container()
+          +ui-kit_column({mw: '260px'})
+            +dropdown({
+              items: [
+                {name: 'Спальни', id: 'bedrooms'},
+                {name: 'Кровати', id: 'beds'},
+                {name: 'Ванные комнаты', id: 'bathrooms'}
+              ],
+              dropdownOptions: {
+                defaultText: 'Количество удобств',
+                plural: {
+                  bedrooms: ['спальня', 'спальни', 'спален'],
+                  beds: ['кровать', 'кровати', 'кроватей'],
+                  bathrooms: ['ванная комната', 'ванные комната', 'ванных комнат'],
                 }
-              })
-            +ui-kit_item({mb: 20})
-              +dropdown({
-                items: [
-                  {name: 'Взрослые', id: 'adults'},
-                  {name: 'Дети', id: 'children'},
-                  {name: 'Младенцы', id: 'babies'}
-                ],
-                hasButtons: true,
-                dropdownOptions: {
-                  defaultText: 'Сколько гостей',
-                  plural: ['гость', 'гостя', 'гостей']
-                }
-              })
-            +ui-kit_item({mb: 20})
+              }
+            })
+          +ui-kit_column({mw: '320px'})
+            +dropdown({
+              items: [
+                {name: 'Взрослые', id: 'adults'},
+                {name: 'Дети', id: 'children'},
+                {name: 'Младенцы', id: 'babies'}
+              ],
+              hasButtons: true,
+              dropdownOptions: {
+                defaultText: 'Сколько гостей',
+                plural: ['гость', 'гостя', 'гостей']
+              }
+            })
+      +ui-kit_section()
+        +ui-kit_container()
+          +ui-kit_column({mw: '260px'})
               +collapse({
-                title: 'expandable checkbox list'
+                title: 'expandable checkbox list',
+                expanded: true
               })
-                div 123
-            +ui-kit_item({mb: 20})
-              +bullet-list()
-                each item in list 
-                  +bullet-list_item()
-                    | #{item}
-            +ui-kit_item({mb: 20})
-              +amenities({items: amenitiesItems})
-            +ui-kit_item({mb: 20})
-              +comment({
-                image: 'avatar-man.png',
-                name: 'Мурад Сарафанов',
-                date: '5 дней назад',
-                likes: {
-                  activated: true,
-                  count: 12
-                },
-                text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
-              })
+                +checkbox-list(checkboxItems)
+          +ui-kit_column({mw: '260px'})
+            +checkbox-list(richCheckboxItems)
+          +ui-kit_column({mw: '260px'})
+            +bullet-list()
+              each item in list 
+                +bullet-list_item()
+                  | #{item}
+      +ui-kit_section()
+        +ui-kit_container() 
+          +ui-kit_column({mw: '290px'})   
+            +amenities({items: amenitiesItems})
+          +ui-kit_column({mw: '700px'}) 
+            +comment({
+              image: 'avatar-man.png',
+              name: 'Мурад Сарафанов',
+              date: '5 дней назад',
+              likes: {
+                activated: true,
+                count: 12
+              },
+              text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
+            })
 
     +ui-kit_page('Cards')
       +ui-kit_section()

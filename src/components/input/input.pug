@@ -3,12 +3,13 @@
   options.type - attribute placeholder
   options.placeholder - attribute placeholder
   options.id - attribute id
+  options.mask - паттерн маски
 
 mixin input(options={})
-  .input
-    input.input__control(
-      type=options.type
-      name=options.name 
-      id=options.id 
-      placeholder=options.placeholder
-    )
+  input.input(
+    type=options.type
+    name=options.name 
+    id=options.id 
+    placeholder=options.placeholder
+    data-mask=options.mask
+  )

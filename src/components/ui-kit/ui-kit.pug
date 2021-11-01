@@ -19,8 +19,10 @@ mixin ui-kit_container()
   .ui-kit__container
     block
 
-mixin ui-kit_column()
-  .ui-kit__column
+mixin ui-kit_column(options={})
+  if !options.mw
+    - options.mw = 'auto'
+  .ui-kit__column(style={'max-width': options.mw, 'width': options.mw ? '100%' : 'auto'})
     block
 
 mixin ui-kit_item(modifiers={})
