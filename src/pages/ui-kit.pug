@@ -19,6 +19,7 @@ include ../components/dropdown/dropdown
 include ../components/bullet-list/bullet-list
 include ../components/amenities/amenities
 include ../components/comment/comment
+include ../components/collapse/collapse
 
 block title
   | UI Kit
@@ -218,6 +219,11 @@ block main
                 }
               })
             +ui-kit_item({mb: 20})
+              +collapse({
+                title: 'expandable checkbox list'
+              })
+                div 123
+            +ui-kit_item({mb: 20})
               +bullet-list()
                 each item in list 
                   +bullet-list_item()
@@ -235,3 +241,10 @@ block main
                 },
                 text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.'
               })
+
+    +ui-kit_page('Cards')
+      +ui-kit_section()
+        +ui-kit_container()
+          +ui-kit_column()
+
+            

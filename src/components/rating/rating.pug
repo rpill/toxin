@@ -1,0 +1,15 @@
+//-
+  options.rating = от 1 до 5
+
+mixin rating(options={})
+  - const rest = 5 - options.rating;
+  .rating
+    - let i = 0;
+    while i < options.rating
+      - i += 1;
+      .rating__star.rating__star_on
+
+    - i = 0;
+    while i < rest
+      - i += 1;
+      .rating__star

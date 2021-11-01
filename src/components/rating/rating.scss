@@ -1,0 +1,21 @@
+@import '~styles/variables';
+
+.rating {
+  display: flex;
+
+  &__star {
+    flex-shrink: 0;
+    width: 20px;
+    height: 19px;
+
+    background-image: url('./images/star-off.svg');
+
+    &_on {
+      background-image: url('./images/star-on.svg');
+    }
+
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
+  }
+}

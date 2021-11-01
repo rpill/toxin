@@ -1,0 +1,47 @@
+@import '~styles/variables';
+
+.collapse {
+  $p: &;
+
+  &_expanded {
+    #{$p}__header {
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+
+    #{$p}__body {
+      display: block;
+    }
+  }
+
+  &__header {
+    position: relative;
+
+    cursor: pointer;
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 15px;
+      top: 50%;
+
+      display: block;
+      width: 12px;
+      height: 8px;
+      margin-top: -4px;
+
+      background-image: url('./images/arrow-down.svg');
+
+      transition: transform $default-transition;
+    }
+  }
+
+  &__body {
+    display: none;
+  }
+
+  &__inner {
+    padding-top: 15px;
+  }
+}
