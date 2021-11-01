@@ -1,0 +1,15 @@
+//-
+  options.items = элементы
+
+mixin amenities(options={})
+  if !options.items
+    - options.items = []
+
+  .amenities
+    each item in options.items
+      .amenities__item
+        .amenities__icon
+          img(src=require(`../components/amenities/images/${item.icon}`) alt=item.title)
+        .amenities__content 
+          .amenities__title= item.title
+          .amenities__text= item.text

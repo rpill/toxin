@@ -17,6 +17,7 @@ include ../components/link/link
 include ../components/pagination/pagination
 include ../components/dropdown/dropdown
 include ../components/bullet-list/bullet-list
+include ../components/amenities/amenities
 
 block title
   | UI Kit
@@ -65,6 +66,24 @@ block main
       'Нельзя с питомцами',
       'Без вечеринок и мероприятий',
       'Время прибытия — после 13:00, а выезд до 12:00'
+    ]
+
+    const amenitiesItems = [
+      {
+        icon: 'comfort.svg',
+        title: 'Комфорт',
+        text: 'Шумопоглощающие стены'
+      },
+      {
+        icon: 'location.svg',
+        title: 'Удобство',
+        text: 'Окно в каждой из спален'
+      },
+      {
+        icon: 'cosiness.svg',
+        title: 'Уют',
+        text: 'Номер оснащён камином'
+      }
     ]
 
   +ui-kit()
@@ -202,3 +221,5 @@ block main
                 each item in list 
                   +bullet-list_item()
                     | #{item}
+            +ui-kit_item({mb: 20})
+              +amenities({items: amenitiesItems})

@@ -1,0 +1,42 @@
+@import '~styles/variables';
+
+.amenities {
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+
+      border-bottom: 1px solid $color-dark-10;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    min-width: 48px;
+    min-height: 48px;
+    margin-right: 10px;
+  }
+
+  &__content {
+    
+  }
+
+  &__title {
+    font-size: $text-font-size;
+    line-height: $text-line-height;
+    font-weight: 700;
+    color: $color-dark-75;
+  }
+
+  &__text {
+    font-size: $text-font-size;
+    line-height: $text-line-height;
+    color: $color-dark-75;
+  }
+}
