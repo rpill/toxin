@@ -14,6 +14,8 @@ $(() => {
     const $buttonClear = $(node).find('.js-dropdown__clear');
     const $buttonApply = $(node).find('.js-dropdown__apply');
 
+    const buttonsDecrement = {};
+
     $(node).iqDropdown({
       setSelectionText: (itemCount, totalItems) => {
         if(totalItems === 0) {
@@ -37,12 +39,21 @@ $(() => {
           return stringFormatted;
         }
       },
-      beforeDecrement: (id, itemCount) => {
-        return true;
-      },
-      beforeIncrement: (id, itemCount) => {
-        return true;
+      onChange: (id, count, totalItems) => {
+        if(count === 0) {
+          $(buttonsDecrement[id]).addClass('is-disabled');
+        } else {
+          $(buttonsDecrement[id]).removeClass('is-disabled');
+        }
       }
+    });
+
+    $(node).find('.iqdropdown-menu-option').each((index, node) => {
+      const id = $(node).data('id');
+      const $button = $(node).find('.button-decrement');
+
+      buttonsDecrement[id] = $button;
+      $button.addClass('is-disabled');
     });
 
     $buttonClear.on('click', (e) => {

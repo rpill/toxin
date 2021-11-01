@@ -141,6 +141,8 @@
 
           font-size: 18px;
           color: $color-dark-50;
+
+          transition: color $default-transition;
         }
 
         &.button-decrement {
@@ -154,6 +156,15 @@
           &:before {
             content: '+';
             top: 1px;
+          }
+        }
+
+        &.is-disabled {
+          border-color: $color-dark-25;
+          cursor: not-allowed;
+
+          &:before {
+            color: $color-dark-25;
           }
         }
 
