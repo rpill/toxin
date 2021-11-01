@@ -1,0 +1,9 @@
+.radio-group {
+  display: flex;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}

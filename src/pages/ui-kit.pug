@@ -7,7 +7,7 @@ include ../components/h3/h3
 
 include ../components/input/input
 include ../components/checkbox-list/checkbox-list
-include ../components/radio/radio
+include ../components/radio-group/radio-group
 include ../components/toggle/toggle
 include ../components/like-button/like-button
 include ../components/rate-button/rate-button
@@ -94,6 +94,21 @@ block main
       },
     ]
 
+    const radioItems = {
+      name: 'sex',
+      items: [
+        {
+          value: 'man',
+          checked: true,
+          text: 'Мужчина'
+        },
+        {
+          value: 'woman',
+          text: 'Женщина'
+        }
+      ]
+    }
+
     const list = [
       'Нельзя с питомцами',
       'Без вечеринок и мероприятий',
@@ -158,10 +173,7 @@ block main
             +ui-kit_item({mb: 20})
               +checkbox-list(richCheckboxItems)
             +ui-kit_item({mb: 20})
-              +radio({
-                name: 'sex',
-                text: 'Мужчина',
-              })
+              +radio-group(radioItems)
             +ui-kit_item({mb: 20})
               +toggle({
                 name: 'spec',

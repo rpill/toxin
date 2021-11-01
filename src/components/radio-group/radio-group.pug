@@ -1,0 +1,15 @@
+include ../radio/radio
+
+//-
+  options.name = имя
+  options.items = элементы
+
+mixin radio-group(options={})
+  if !options.items
+    - options.items = []
+    
+  .radio-group
+    each item in options.items 
+      - item.name = options.name
+      .radio-group__item
+        +radio(item)
