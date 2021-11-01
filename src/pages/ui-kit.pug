@@ -6,7 +6,7 @@ include ../components/h2/h2
 include ../components/h3/h3
 
 include ../components/input/input
-include ../components/checkbox/checkbox
+include ../components/checkbox-list/checkbox-list
 include ../components/radio/radio
 include ../components/toggle/toggle
 include ../components/like-button/like-button
@@ -61,6 +61,36 @@ block main
         name: 'Green',
         color: '#6fcf97',
         hex: '#6fcf97'
+      },
+    ]
+
+    const checkboxItems = [
+      {
+        text: 'Можно курить',
+        name: 'smoke',
+      },
+      {
+        text: 'Можно с питомцами',
+        name: 'pets',
+        checked: true,
+      },
+      {
+        text: 'Можно пригласить гостей (до 10 человек)',
+        name: 'guests',
+        checked: true
+      },
+    ]
+
+    const richCheckboxItems = [
+      {
+        label: 'Широкий коридор',
+        text: 'Ширина коридоров в номере не менее 91 см.',
+        name: 'width',
+      },
+      {
+        label: 'Помощник для инвалидов',
+        text: 'На 1 этаже вас встретит специалист  и проводит до номера.',
+        name: 'help',
       },
     ]
 
@@ -124,16 +154,9 @@ block main
                 placeholder: 'Email',
               })
             +ui-kit_item({mb: 20})
-              +checkbox({
-                name: 'smoke',
-                text: 'Можно курить',
-              })
+              +checkbox-list(checkboxItems)
             +ui-kit_item({mb: 20})
-              +checkbox({
-                name: 'smoke',
-                label: 'Широкий коридор',
-                text: 'Ширина коридоров в номере не менее 91 см.',
-              })
+              +checkbox-list(richCheckboxItems)
             +ui-kit_item({mb: 20})
               +radio({
                 name: 'sex',
