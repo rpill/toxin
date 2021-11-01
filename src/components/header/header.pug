@@ -23,19 +23,19 @@ mixin header(options={})
             ul.header__menu-list
               each menuItem in options.menuItems
                 li.header__menu-item
-                  a.header__menu-link(class=menuItem.active ? "header__menu-link_current" : "" href="")= menuItem.name
+                  a.header__menu-link(class=menuItem.active ? "header__menu-link_current" : "" href="/mock-address/change-me")= menuItem.name
                     if menuItem.items
                       span.header__menu-link-arrow
                   if menuItem.items
                     ul.header__menu-sublist
                       each menuSubitem in menuItem.items
                         li.header__menu-item.header__menu-item_sub 
-                          a.header__menu-link(class="header__menu-link_sub" class=menuSubitem.active ? 'header__menu-link_current' : '' href="")= menuSubitem.name
+                          a.header__menu-link(class="header__menu-link_sub" class=menuSubitem.active ? 'header__menu-link_current' : '' href="/mock-address/change-me")= menuSubitem.name
 
 
           if options.isAuthorized
             .header__user
-              a.header__user-name(href="") Юлий Цезарь
+              a.header__user-name(href="/mock-address/change-me") Юлий Цезарь
           else
             .header__buttons
               .header__button

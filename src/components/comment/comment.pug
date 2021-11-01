@@ -1,0 +1,28 @@
+include ../like-button/like-button
+
+//-
+  options.image = изображение
+  options.name = имя
+  options.date = дата
+  options.likes = количество лайков
+  options.text = текст
+
+mixin comment(options={})
+  .comment
+    .comment__user 
+      .comment__avatar-wrap 
+        img.comment__avatar(
+          src=require(`../components/comment/images/${options.image}`) 
+          alt=options.name
+        )
+      .comment__user-content 
+        .comment__name= options.name
+        .comment__date= options.date
+
+    .comment__content 
+      .comment__likes 
+        +like-button({
+          activated: options.likes.activated,
+          count: options.likes.count
+        })
+      .comment__text= options.text

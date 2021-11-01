@@ -1,0 +1,65 @@
+@import '~styles/variables';
+
+.comment {
+
+  &__user {
+    display: flex;
+    margin-bottom: 12px;
+  }
+
+  &__user-content {
+
+  }
+
+  &__name {
+    font-size: $text-font-size;
+    line-height: $text-line-height;
+    font-weight: 700;
+    color: $color-dark-75;
+  }
+
+  &__date {
+    font-size: $text-font-size;
+    line-height: $text-line-height;
+    color: $color-dark-75;
+  }
+
+  &__avatar-wrap {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+
+    overflow: hidden;
+    border: 2px solid white;
+    box-shadow: 0px 10px 20px $color-dark-10;
+    border-radius: 50%;
+  }
+
+  &__avatar {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__likes {
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    margin-right: 10px;
+  }
+
+  &__text {
+    position: relative;
+    top: -2px;
+
+    font-size: $text-font-size;
+    line-height: $text-line-height;
+    color: $color-dark-75;
+  }
+}
