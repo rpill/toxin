@@ -1,0 +1,12 @@
+mixin bullet-list()
+  ul.bullet-list
+    block
+
+mixin bullet-list_item(options={})
+  if !options.modifiers
+    - options.modifiers = {}
+
+  - const classes = getModifiers('bullet-list__item', options.modifiers);
+
+  li.bullet-list__item(class=classes) 
+    block

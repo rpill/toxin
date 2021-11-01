@@ -16,6 +16,7 @@ include ../components/button/button
 include ../components/link/link
 include ../components/pagination/pagination
 include ../components/dropdown/dropdown
+include ../components/bullet-list/bullet-list
 
 block title
   | UI Kit
@@ -58,6 +59,12 @@ block main
         color: '#6fcf97',
         hex: '#6fcf97'
       },
+    ]
+
+    const list = [
+      'Нельзя с питомцами',
+      'Без вечеринок и мероприятий',
+      'Время прибытия — после 13:00, а выезд до 12:00'
     ]
 
   +ui-kit()
@@ -190,3 +197,8 @@ block main
                   plural: ['гость', 'гостя', 'гостей']
                 }
               })
+            +ui-kit_item({mb: 20})
+              +bullet-list()
+                each item in list 
+                  +bullet-list_item()
+                    | #{item}

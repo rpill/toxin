@@ -1,0 +1,33 @@
+@import '~styles/variables';
+
+.bullet-list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  &__item {
+    position: relative;
+
+    margin-bottom: 10px;
+    padding-left: 20px;
+    
+    font-size: $text-font-size;
+    line-height: $text-line-height;
+    color: $color-dark-75;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+
+      display: block;
+      width: 10px;
+      height: 10px;
+
+      background-color: $color-dark-25;
+      border-radius: 50%;
+    }
+  }
+}
