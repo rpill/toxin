@@ -18,6 +18,8 @@ mixin date-dropdown(options={})
           input: {
             name: 'date-from',
             type: 'text',
+            placeholder: 'Выберите даты',
+            icon: 'arrow-down'
           }
         })
     else 
@@ -32,7 +34,8 @@ mixin date-dropdown(options={})
               name: 'date-from',
               type: 'text',
               placeholder: 'ДД.ММ.ГГГГ',
-              mask: '99.99.9999'
+              mask: '99.99.9999',
+              icon: 'arrow-down'
             }
           })
         .date-dropdown__input-wrap.js-date-dropdown__input-to
@@ -45,6 +48,7 @@ mixin date-dropdown(options={})
               name: 'date-to',
               type: 'text',
               placeholder: 'ДД.ММ.ГГГГ',
-              mask: '99.99.9999'
+              mask: '99.99.9999',
+              icon: 'arrow-down'
             }
           })

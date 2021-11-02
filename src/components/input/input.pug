@@ -4,12 +4,18 @@
   options.placeholder - attribute placeholder
   options.id - attribute id
   options.mask - паттерн маски
+  options.icon - иконка
 
 mixin input(options={})
-  input.input(
-    type=options.type
-    name=options.name 
-    id=options.id 
-    placeholder=options.placeholder
-    data-mask=options.mask
-  )
+  .input
+    input.input__control(
+      class=classes
+      type=options.type
+      name=options.name 
+      id=options.id 
+      placeholder=options.placeholder
+      data-mask=options.mask
+    )
+    if options.icon 
+      span.input__icon 
+        img.input__icon-image(src=require(`../components/input/images/${options.icon}.svg`), alt="")

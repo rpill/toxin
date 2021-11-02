@@ -7,6 +7,7 @@ include ../components/h3/h3
 
 include ../components/input-field/input-field
 include ../components/date-dropdown/date-dropdown
+include ../components/subscribe-form/subscribe-form
 include ../components/checkbox-list/checkbox-list
 include ../components/radio-group/radio-group
 include ../components/toggle/toggle
@@ -209,6 +210,8 @@ block main
               +date-dropdown({
                 type: 'double'
               })
+            +ui-kit_item({mb: 20})
+              +subscribe-form
 
           +ui-kit_column({mw: '260px'})
             +ui-kit_item({mb: 20})
@@ -234,6 +237,7 @@ block main
                 name: 'rating',
                 rating: 4
               })
+
           +ui-kit_column({mw: '320px'})
             +ui-kit_item({mb: 20})
               +range({
@@ -266,6 +270,7 @@ block main
               })
             +ui-kit_item({mb: 20})
               +pagination()
+
       +ui-kit_section()
         +ui-kit_container()
           +ui-kit_column({mw: '260px'})
@@ -284,6 +289,7 @@ block main
                 }
               }
             })
+
           +ui-kit_column({mw: '320px'})
             +dropdown({
               items: [
@@ -297,6 +303,7 @@ block main
                 plural: ['гость', 'гостя', 'гостей']
               }
             })
+
       +ui-kit_section()
         +ui-kit_container()
           +ui-kit_column({mw: '260px'})
@@ -305,17 +312,21 @@ block main
                 expanded: true
               })
                 +checkbox-list(checkboxItems)
+
           +ui-kit_column({mw: '260px'})
             +checkbox-list(richCheckboxItems)
+
           +ui-kit_column({mw: '260px'})
             +bullet-list()
               each item in list 
                 +bullet-list_item()
                   | #{item}
+
       +ui-kit_section()
         +ui-kit_container() 
           +ui-kit_column({mw: '290px'})   
             +amenities({items: amenitiesItems})
+            
           +ui-kit_column({mw: '700px'}) 
             +comment({
               image: 'avatar-man.png',
