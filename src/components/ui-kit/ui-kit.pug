@@ -22,7 +22,7 @@ mixin ui-kit_container()
 mixin ui-kit_column(options={})
   if !options.mw
     - options.mw = 'auto'
-  .ui-kit__column(style={'max-width': options.mw, 'width': options.mw ? '100%' : 'auto'})
+  .ui-kit__column(style={'max-width': options.mw, 'width': options.mw !== 'auto' ? '100%' : 'auto'})
     block
 
 mixin ui-kit_item(modifiers={})

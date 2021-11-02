@@ -202,7 +202,13 @@ block main
                 }
               })
             +ui-kit_item({mb: 20})
-              +date-dropdown()
+              +date-dropdown({
+                type: 'single'
+              })
+            +ui-kit_item({mb: 20})
+              +date-dropdown({
+                type: 'double'
+              })
 
           +ui-kit_column({mw: '260px'})
             +ui-kit_item({mb: 20})

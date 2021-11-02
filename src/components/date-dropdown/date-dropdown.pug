@@ -1,0 +1,50 @@
+include ../input-field/input-field
+
+//-
+  options.type = single/double - два поля или одно
+
+mixin date-dropdown(options={})
+  if !options.type
+    - options.type = 'single'
+
+  .date-dropdown.js-date-dropdown(data-type=options.type)
+    if options.type == 'single'
+      .date-dropdown__input-wrap.js-date-dropdown__input-from-to
+        +input-field({
+          id: 'dates-stay',
+          label: {
+            text: 'Даты пребывания в отеле'
+          },
+          input: {
+            name: 'date-from',
+            type: 'text',
+          }
+        })
+    else 
+      .date-dropdown__inputs
+        .date-dropdown__input-wrap.js-date-dropdown__input-from
+          +input-field({
+            id: 'date-from',
+            label: {
+              text: 'Прибытие'
+            },
+            input: {
+              name: 'date-from',
+              type: 'text',
+              placeholder: 'ДД.ММ.ГГГГ',
+              mask: '99.99.9999'
+            }
+          })
+        .date-dropdown__input-wrap.js-date-dropdown__input-to
+          +input-field({
+            id: 'date-to',
+            label: {
+              text: 'Выезд'
+            },
+            input: {
+              name: 'date-to',
+              type: 'text',
+              placeholder: 'ДД.ММ.ГГГГ',
+              mask: '99.99.9999'
+            }
+          })
