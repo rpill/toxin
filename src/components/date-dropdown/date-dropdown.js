@@ -49,7 +49,16 @@ $(() => {
 
     const options = {
       onSelect({datepicker}) {
+        const dateFrom = datepicker.rangeDateFrom;
         const dateTo = datepicker.rangeDateTo;
+
+        if(dateFrom) {
+          const dateFromFormatted = dateFrom.toLocaleDateString("ru-RU");
+          $inputFrom.val(dateFromFormatted);
+        } else {
+          $inputFrom.val('');
+        }
+
         if(dateTo) {
           const dateToFormatted = dateTo.toLocaleDateString("ru-RU");
           $inputTo.val(dateToFormatted);

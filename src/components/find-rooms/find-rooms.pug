@@ -1,0 +1,38 @@
+include ../modal/modal
+include ../form/form
+include ../date-dropdown/date-dropdown
+include ../label/label
+include ../dropdown/dropdown
+include ../button/button
+
+mixin find-rooms()
+  .find-rooms 
+    +modal({title: 'Найдём номера под ваши пожелания'})
+      +form()
+        +form_field()
+          +date-dropdown({
+            type: 'double'
+          })
+        +form_field()
+          +label({
+            text: 'Гости'
+          })
+          +dropdown({
+            items: [
+              {name: 'Взрослые', id: 'adults'},
+              {name: 'Дети', id: 'children'},
+              {name: 'Младенцы', id: 'babies'}
+            ],
+            hasButtons: true,
+            dropdownOptions: {
+              defaultText: 'Сколько гостей',
+              plural: ['гость', 'гостя', 'гостей']
+            }
+          })
+          
+        +form_buttons({modifiers: {mt: 30}})
+          +button({
+            text: 'Подобрать номер',
+            isSubmit: true,
+            modifiers: {width: 'full', icon: 'arrow-forward'}
+          })

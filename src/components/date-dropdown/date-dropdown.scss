@@ -16,6 +16,8 @@
 .air-datepicker {
   &.-custom- {
     width: 320px;
+    margin-top: -8px;
+
     font-family: $font-body;
     font-size: 12px;
     color: $color-dark-50;

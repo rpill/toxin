@@ -10,6 +10,11 @@ mixin form_field()
   .form__field
     block
 
-mixin form_buttons()
-  .form__buttons
+mixin form_buttons(options={})
+  if !options.modifiers
+    - options.modifiers = {}
+
+  - const classes = getModifiers('form__buttons', options.modifiers);
+
+  .form__buttons(class=classes)
     block
