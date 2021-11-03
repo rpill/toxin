@@ -2,6 +2,7 @@
   options.text - текст
   options.isSubmit - тип кнопки Submit
   options.modifiers - модификаторы кнопки
+  options.href - ссылка
 
 mixin button(options={})
   if !options.modifiers
@@ -9,5 +10,5 @@ mixin button(options={})
 
   - const classes = getModifiers('button', options.modifiers);
 
-  button.button(class=classes type = options.isSubmit ? 'submit' : false)
+  #{ options.href ? "a" : "button"}.button(class=classes type=options.isSubmit ? 'submit' : false href=options.href)
     span.button__text= options.text || 'Click me'

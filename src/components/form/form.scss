@@ -1,0 +1,19 @@
+.form {
+  $p: &;
+
+  &__group {
+    & + #{$p}__group {
+      margin-top: 20px;
+    }
+  }
+
+  &__field {
+    & + #{$p}__field {
+      margin-top: 10px;
+    }
+  }
+
+  &__buttons {
+    margin-top: 20px;
+  }
+}

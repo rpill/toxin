@@ -1,0 +1,23 @@
+include ../h1/h1
+
+//-
+  options.title = заголовок
+
+mixin modal(options={})
+  - const slots = {}
+            
+    mixin slot(key)
+        - slots[key] = block
+
+  .modal 
+    .modal__header
+      if options.title
+        .modal__title 
+          +h1({text: options.title})
+      if slots["header"]
+        - slots["header"]()
+    .modal__body
+      block
+    if slots["footer"]
+      .modal__footer
+        - slots["footer"]()
