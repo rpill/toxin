@@ -1,0 +1,96 @@
+include ../modal/modal
+include ../form/form
+include ../input-field/input-field
+include ../radio-group/radio-group
+include ../toggle/toggle
+include ../button/button
+
+mixin sign-up()
+  -
+    const radioItems = {
+      name: 'sex',
+      items: [
+        {
+          value: 'man',
+          checked: true,
+          text: 'Мужчина'
+        },
+        {
+          value: 'woman',
+          text: 'Женщина'
+        }
+      ]
+    }
+  .sign-up 
+    +modal({title: 'Регистрация аккаунта'})
+      +form()
+        +form_group()
+          +form_field()
+            +input({
+              name: 'first-name',
+              type: 'text', 
+              placeholder: 'Имя'
+            })
+          +form_field()
+            +input({
+              name: 'last-name',
+              type: 'text', 
+              placeholder: 'Фамилия'
+            })
+          +form_field()
+            +radio-group(radioItems)
+        +form_group()
+          +input-field({
+            id: 'date-birth',
+            label: {
+              text: 'Дата рождения'
+            },
+            input: {
+              name: 'date-birth',
+              type: 'text',
+              placeholder: 'ДД.ММ.ГГГГ',
+              mask: '99.99.9999'
+            }
+          })
+        +form_group()
+          +form_field()
+            +input-field({
+              id: 'email',
+              label: {
+                text: 'Данные для входа в сервис'
+              },
+              input: {
+                name: 'email',
+                type: 'text',
+                placeholder: 'Email',
+              }
+            })
+          +form_field()
+            +input-field({
+              input: {
+                name: 'password',
+                type: 'password', 
+                placeholder: 'Пароль'
+              }
+            })
+          +form_field()
+            +toggle({
+              name: 'spec',
+              text: 'Получать спецпредложения',
+            })
+        +form_buttons()
+          +button({
+            text: 'Зарегистрироваться',
+            isSubmit: true,
+            modifiers: {width: 'full', icon: 'arrow-forward'}
+          })
+      +slot('footer')
+        .sign-in__footer
+          .sign-in__text Уже есть аккаунт на Toxin
+          +button({
+            text: 'Войти',
+            href: '/mock-address/change-me',
+            modifiers: {view: 'bordered'}
+          })
+
+      

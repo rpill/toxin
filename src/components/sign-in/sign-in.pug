@@ -1,6 +1,6 @@
 include ../modal/modal
 include ../form/form
-include ../input/input
+include ../input-field/input-field
 include ../button/button
 
 mixin sign-in()
@@ -8,16 +8,20 @@ mixin sign-in()
     +modal({title: 'Войти'})
       +form()
         +form_field()
-          +input({
-            name: 'email',
-            type: 'text', 
-            placeholder: 'Email'
+          +input-field({
+            input: {
+              name: 'email',
+              type: 'text', 
+              placeholder: 'Email'
+            }
           })
         +form_field()
-          +input({
-            name: 'password',
-            type: 'password', 
-            placeholder: 'Пароль'
+          +input-field({
+            input: {
+              name: 'password',
+              type: 'password', 
+              placeholder: 'Пароль'
+            }
           })
         +form_buttons()
           +button({
@@ -30,7 +34,6 @@ mixin sign-in()
           .sign-in__text Нет аккаунта на Toxin?
           +button({
             text: 'Создать',
-            href: '/mock-address/change-me'
+            href: '/mock-address/change-me',
+            modifiers: {view: 'bordered'}
           })
-
-      

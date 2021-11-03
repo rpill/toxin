@@ -1,0 +1,15 @@
+@import '~styles/variables';
+
+.sign-up {
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__text {
+    font-size: $text-font-size;
+    line-height: 18px;
+    color: black;
+  }
+}

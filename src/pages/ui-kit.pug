@@ -23,6 +23,7 @@ include ../components/amenities/amenities
 include ../components/comment/comment
 include ../components/collapse/collapse
 
+include ../components/sign-up/sign-up
 include ../components/sign-in/sign-in
 include ../components/card/card
 
@@ -169,7 +170,7 @@ block main
           +ui-kit_column({mw: '320px'})
             +ui-kit_item({mb: 20})
               +input-field({
-                id: 'email',
+                id: 't-email',
                 label: {
                   text: 'Text Field'
                 },
@@ -345,7 +346,9 @@ block main
     +ui-kit_page('Cards')
       +ui-kit_section()
         +ui-kit_container()
-          +ui-kit_column()
+          +ui-kit_column({mw: '380px'})
+            +ui-kit_item()
+              +sign-up()
 
           +ui-kit_column({mw: '380px'})
             +ui-kit_item()

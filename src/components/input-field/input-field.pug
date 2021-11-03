@@ -8,9 +8,10 @@ include ../input/input
 
 mixin input-field(options)
   .input-field
-    .input-field__label
-      - options.label.id = options.id;
-      +label(options.label)
+    if options.label
+      .input-field__label
+        - options.label.id = options.id;
+        +label(options.label)
     .input-field__input 
       - options.input.id = options.id;
       +input(options.input)
