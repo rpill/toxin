@@ -1,5 +1,6 @@
 import './input.scss';
 
+import $ from 'jquery';
 import Inputmask from 'inputmask';
 
 $(() => {

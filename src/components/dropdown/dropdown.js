@@ -1,11 +1,12 @@
 import './dropdown.scss';
 
+import $ from 'jquery';
 import 'item-quantity-dropdown/lib/item-quantity-dropdown.min';
 import * as pluralRu from 'plural-ru';
 
 $(() => {
 
-  $('.js-dropdown').each((index, node) => {
+  $('.js-dropdown').each((_, node) => {
 
     const dropdownOptions = JSON.parse(node.dataset.options);
 
@@ -27,7 +28,7 @@ $(() => {
         }
 
         if(plural instanceof Object) {
-          const items = Object.entries(itemCount).filter(([_, count]) => count !== 0);
+          const items = Object.entries(itemCount).filter(([, count]) => count !== 0);
           
           const itemsFormatted = items.reduce((acc, [id, count]) => {
             const string = count + ' ' + pluralRu(count, ...plural[id]);
@@ -38,8 +39,10 @@ $(() => {
 
           return stringFormatted;
         }
+
+        return defaultText;
       },
-      onChange: (id, count, totalItems) => {
+      onChange: (id, count) => {
         if(count === 0) {
           $(buttonsDecrement[id]).addClass('is-disabled');
         } else {
@@ -48,9 +51,9 @@ $(() => {
       }
     });
 
-    $(node).find('.iqdropdown-menu-option').each((index, node) => {
-      const id = $(node).data('id');
-      const $button = $(node).find('.button-decrement');
+    $(node).find('.iqdropdown-menu-option').each((__, optionNode) => {
+      const id = $(optionNode).data('id');
+      const $button = $(optionNode).find('.button-decrement');
 
       buttonsDecrement[id] = $button;
       $button.addClass('is-disabled');

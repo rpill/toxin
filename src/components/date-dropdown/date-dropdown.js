@@ -1,6 +1,8 @@
 import './date-dropdown.scss';
 
 import 'air-datepicker/air-datepicker.css';
+
+import $ from 'jquery';
 import AirDatepicker from 'air-datepicker';
 
 $(() => {
@@ -27,26 +29,26 @@ $(() => {
     buttons: ['clear', buttonApply]
   }
 
-  const initSingleDatepicker = ($container, defaultOptions) => {
+  const initSingleDatepicker = ($container, defaultOpt) => {
     const $input = $container.find('.js-date-dropdown__input-from-to input');
 
     const options = {
       dateFormat: 'd MMM',
-      onSelect({date, formattedDate, datepicker}) {
+      onSelect() {
         const currentValue = $input.val();
         $input.val(currentValue.toLowerCase());
       }
     }
 
-    new AirDatepicker($input[0], {...defaultOptions, ...options});
+    const dp = new AirDatepicker($input[0], {...defaultOpt, ...options});
   }
 
-  const initDoubleDatepicker = ($container, defaultOptions) => {
+  const initDoubleDatepicker = ($container, defaultOpt) => {
     const $inputFrom = $container.find('.js-date-dropdown__input-from input');
     const $inputTo = $container.find('.js-date-dropdown__input-to input');
 
     const options = {
-      onSelect({date, formattedDate, datepicker}) {
+      onSelect({datepicker}) {
         const dateTo = datepicker.rangeDateTo;
         if(dateTo) {
           const dateToFormatted = dateTo.toLocaleDateString("ru-RU");
@@ -57,9 +59,9 @@ $(() => {
       }
     }
 
-    let dp = new AirDatepicker($inputFrom[0], {...defaultOptions, ...options});
+    const dp = new AirDatepicker($inputFrom[0], {...defaultOpt, ...options});
 
-    $inputTo.on('click focus', (e) => {
+    $inputTo.on('click focus', () => {
       dp.show();
     });
   }
@@ -67,7 +69,7 @@ $(() => {
   $('.js-date-dropdown').each((index, node) => {
     const type = $(node).data('type');
 
-    if(type == 'single') {
+    if(type === 'single') {
       initSingleDatepicker($(node), defaultOptions);
     } else {
       initDoubleDatepicker($(node), defaultOptions);
