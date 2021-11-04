@@ -1,0 +1,140 @@
+@import '~styles/variables';
+
+.book-room {
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__header-item {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__number {
+    font-size: 19px;
+    line-height: $text-line-height;
+    font-weight: 700;
+    color: $color-dark;
+  }
+
+  &__type {
+    position: relative;
+    top: -3px;
+
+    margin-left: 8px;
+
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-primary;
+  }
+
+  &__price {
+    font-size: $text-font-size;
+    line-height: 18px;
+    font-weight: 700;
+    color: $color-dark-50;
+  }
+
+  &__per {
+    margin-left: 5px;
+
+    font-size: 12px;
+    line-height: 18px;
+    color: $color-dark-50;
+  }
+
+  &__info {
+    margin-top: 20px;
+  }
+
+  &__info-item {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__info-term {
+    display: flex;
+
+    font-family: $font-body;
+    font-size: $text-font-size;
+    line-height: $text-line-height;
+    color: $color-dark-75;
+  }
+
+  &__info-hint {
+    display: block;
+    flex-shrink: 0;
+    width: 20px;
+    height: 21px;
+    margin-left: 5px;
+
+    background-image: url('./images/hint.svg');
+  }
+
+  &__info-def {
+    min-width: 90px;
+    margin: 0;
+
+    font-family: $font-body;
+    font-size: $text-font-size;
+    line-height: $text-line-height;
+    text-align: right;
+    color: $color-dark-75;
+  }
+
+  &__total {
+    display: flex;
+    margin-top: 30px;
+  }
+
+  &__total-term {
+    position: relative;
+
+    flex-grow: 1;
+
+    font-size: 19px;
+    line-height: $text-line-height;
+    font-weight: 700;
+    color: $color-dark;
+
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+
+      display: block;
+      width: 100%;
+
+      border-bottom: 1px dotted $color-dark-25;
+    }
+  }
+
+  &__total-text {
+    position: relative;
+
+    padding-left: 2px;
+
+    background-color: white;
+  }
+  
+  &__total-def {
+    position: relative;
+
+    margin: 0;
+
+    font-size: 19px;
+    line-height: $text-line-height;
+    font-weight: 700;
+    color: $color-dark;
+  }
+}

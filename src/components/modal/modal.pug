@@ -7,7 +7,9 @@ mixin modal(options={})
   - const slots = {}
             
     mixin slot(key)
-        - slots[key] = block
+      - slots[key] = block
+
+  block
 
   .modal 
     .modal__header
@@ -16,8 +18,9 @@ mixin modal(options={})
           +h1({text: options.title})
       if slots["header"]
         - slots["header"]()
-    .modal__body
-      block
+    if slots["body"]
+      .modal__body
+        - slots["body"]()
     if slots["footer"]
       .modal__footer
         - slots["footer"]()

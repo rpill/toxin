@@ -1,0 +1,68 @@
+include ../modal/modal
+include ../form/form
+include ../date-dropdown/date-dropdown
+include ../label/label
+include ../dropdown/dropdown
+include ../button/button
+
+mixin book-room()
+  .book-room 
+    +modal()
+      +slot('header')
+        .book-room__header 
+          .book-room__header-item 
+            .book-room__number № 888
+            .book-room__type Люкс
+          .book-room__header-item 
+            .book-room__price 9 900₽
+            .book-room__per в сутки
+
+      +slot('body')
+        +form()
+          +form_group()
+            +form_field()
+              +date-dropdown({
+                type: 'double'
+              })
+          +form_group()
+            +form_field()
+              +label({
+                text: 'Гости'
+              })
+              +dropdown({
+                items: [
+                  {name: 'Взрослые', id: 'adults'},
+                  {name: 'Дети', id: 'children'},
+                  {name: 'Младенцы', id: 'babies'}
+                ],
+                hasButtons: true,
+                dropdownOptions: {
+                  defaultText: 'Сколько гостей',
+                  plural: ['гость', 'гостя', 'гостей']
+                }
+              })
+
+          .book-room__info
+            dl.book-room__info-item
+              dt.book-room__info-term 9 990₽ х 4 суток
+              dd.book-room__info-def 39 960₽
+            dl.book-room__info-item
+              dt.book-room__info-term Сбор за услуги: скидка 2&nbsp;179₽
+                span.book-room__info-hint
+              dd.book-room__info-def 0₽
+            dl.book-room__info-item
+              dt.book-room__info-term Сбор за дополнительные услуги
+                span.book-room__info-hint
+              dd.book-room__info-def 300₽
+
+          dl.book-room__total
+            dt.book-room__total-term
+              span.book-room__total-text Итого
+            dd.book-room__total-def 38 081₽
+            
+          +form_buttons()
+            +button({
+              text: 'Забронировать',
+              isSubmit: true,
+              modifiers: {width: 'full', icon: 'arrow-forward'}
+            })

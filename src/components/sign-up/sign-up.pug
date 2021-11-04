@@ -23,67 +23,68 @@ mixin sign-up()
     }
   .sign-up 
     +modal({title: 'Регистрация аккаунта'})
-      +form()
-        +form_group()
-          +form_field()
-            +input({
-              name: 'first-name',
-              type: 'text', 
-              placeholder: 'Имя'
-            })
-          +form_field()
-            +input({
-              name: 'last-name',
-              type: 'text', 
-              placeholder: 'Фамилия'
-            })
-          +form_field()
-            +radio-group(radioItems)
-        +form_group()
-          +input-field({
-            id: 'date-birth',
-            label: {
-              text: 'Дата рождения'
-            },
-            input: {
-              name: 'date-birth',
-              type: 'text',
-              placeholder: 'ДД.ММ.ГГГГ',
-              mask: '99.99.9999'
-            }
-          })
-        +form_group()
-          +form_field()
+      +slot('body')
+        +form()
+          +form_group()
+            +form_field()
+              +input({
+                name: 'first-name',
+                type: 'text', 
+                placeholder: 'Имя'
+              })
+            +form_field()
+              +input({
+                name: 'last-name',
+                type: 'text', 
+                placeholder: 'Фамилия'
+              })
+            +form_field()
+              +radio-group(radioItems)
+          +form_group()
             +input-field({
-              id: 'email',
+              id: 'date-birth',
               label: {
-                text: 'Данные для входа в сервис'
+                text: 'Дата рождения'
               },
               input: {
-                name: 'email',
+                name: 'date-birth',
                 type: 'text',
-                placeholder: 'Email',
+                placeholder: 'ДД.ММ.ГГГГ',
+                mask: '99.99.9999'
               }
             })
-          +form_field()
-            +input-field({
-              input: {
-                name: 'password',
-                type: 'password', 
-                placeholder: 'Пароль'
-              }
+          +form_group()
+            +form_field()
+              +input-field({
+                id: 'email',
+                label: {
+                  text: 'Данные для входа в сервис'
+                },
+                input: {
+                  name: 'email',
+                  type: 'text',
+                  placeholder: 'Email',
+                }
+              })
+            +form_field()
+              +input-field({
+                input: {
+                  name: 'password',
+                  type: 'password', 
+                  placeholder: 'Пароль'
+                }
+              })
+            +form_field()
+              +toggle({
+                name: 'spec',
+                text: 'Получать спецпредложения',
+              })
+          +form_buttons()
+            +button({
+              text: 'Зарегистрироваться',
+              isSubmit: true,
+              modifiers: {width: 'full', icon: 'arrow-forward'}
             })
-          +form_field()
-            +toggle({
-              name: 'spec',
-              text: 'Получать спецпредложения',
-            })
-        +form_buttons()
-          +button({
-            text: 'Зарегистрироваться',
-            isSubmit: true,
-            modifiers: {width: 'full', icon: 'arrow-forward'}
-          })
       +slot('footer')
         .sign-in__footer
           .sign-in__text Уже есть аккаунт на Toxin

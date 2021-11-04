@@ -24,6 +24,7 @@ include ../components/comment/comment
 include ../components/collapse/collapse
 
 include ../components/find-rooms/find-rooms
+include ../components/book-room/book-room
 include ../components/sign-up/sign-up
 include ../components/sign-in/sign-in
 include ../components/card/card
@@ -354,6 +355,8 @@ block main
               +sign-up()
 
           +ui-kit_column({mw: '380px'})
+            +ui-kit_item({mb: 40})
+              +book-room()
             +ui-kit_item()
               +sign-in()
 
