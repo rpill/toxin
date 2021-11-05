@@ -1,0 +1,18 @@
+extends ../../pug/base
+
+include ../../components/container/container
+include ../../components/find-rooms/find-rooms
+
+block title
+  | Landing page
+
+block main
+  .landing
+    +container()
+      .landing__container
+        .landing__modal
+          +find-rooms()
+        .landing__text 
+          | Лучшие номера для вашей работы, 
+          br
+          | отдыха и просто вдохновения
