@@ -1,0 +1,55 @@
+@import '~styles/variables';
+
+.catalog {
+  padding: 30px 0 70px;
+
+  &__container {
+    display: flex;
+
+    @include respond-down('lg') {
+      display: block;
+    }
+  }
+
+  &__filters {
+    flex-shrink: 0;
+    width: 266px;
+    margin-right: 60px;
+
+    @include respond-down('xl') {
+      margin-right: 30px;
+    }
+
+    @include respond-down('lg') {
+      width: auto;
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__content {
+    width: calc(100% - 266px - 60px);
+
+    @include respond-down('xl') {
+      width: calc(100% - 266px - 30px);
+    }
+
+    @include respond-down('lg') {
+      width: auto;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: grid;
+    grid-gap: 20px 12px;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  }
+
+  &__pagination {
+    margin-top: 40px;
+  }
+}

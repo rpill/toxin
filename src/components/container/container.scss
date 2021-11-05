@@ -4,7 +4,11 @@
   width: 100%;
   max-width: $max-row-width;
   margin: 0 auto;
-  padding: 0 25px;
+  padding: 0 40px;
+
+  @include respond-down('xxl') {
+    padding: 0 25px;
+  }
 
   @include respond-down('md') {
     padding: 0 10px;

@@ -1,0 +1,72 @@
+@import '~styles/variables';
+
+.filters {
+  $p: &;
+
+  &_expanded {
+    #{$p}__header {
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+
+    #{$p}__body {
+      display: block;
+    }
+  }
+
+  &__header {
+    position: relative;
+
+    cursor: pointer;
+
+    @include respond-up('lg') {
+      display: none;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 15px;
+      top: 50%;
+
+      display: block;
+      width: 12px;
+      height: 8px;
+      margin-top: -4px;
+
+      background-image: url('./images/arrow-down.svg');
+
+      transition: transform $default-transition;
+    }
+  }
+
+  &__body {
+    display: none;
+
+    @include respond-up('lg') {
+      display: block;
+    }
+  }
+
+  &__inner {
+    padding-top: 15px;
+  }
+
+  &__item {
+    margin-bottom: 30px;
+
+    &_mb {
+      &_15 {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &__text {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 14px;
+    color: $color-dark-50;
+  }
+}

@@ -6,7 +6,7 @@ include ../h3/h3
 
 mixin collapse(options={})
   .collapse.js-collapse(class=options.expanded ? 'collapse_expanded' : '')
-    .collapse__header.js-collapse-header
+    .collapse__header.js-collapse__header
       +h3({text: options.title})
       span.collapse__arrow
     .collapse__body

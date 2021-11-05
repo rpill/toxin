@@ -1,7 +1,8 @@
 @import '~styles/variables';
 
 .label {
-  margin: 0;
+  display: block;
+  margin-bottom: 5px;
 
   font-size: 12px;
   line-height: 15px;
@@ -9,4 +10,10 @@
   color: $color-dark;
 
   text-transform: uppercase;
+
+  &_mb {
+    &_15 {
+      margin-bottom: 15px;
+    }
+  }
 }

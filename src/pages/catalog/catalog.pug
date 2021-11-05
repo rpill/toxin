@@ -1,0 +1,49 @@
+extends ../../pug/base
+
+include ../../components/container/container
+include ../../components/filters/filters
+include ../../components/h1/h1
+include ../../components/card/card
+include ../../components/pagination/pagination
+
+block title
+  | Search room
+
+block main
+  .catalog
+    +container()
+      .catalog__container 
+        .catalog__filters
+          +filters() 
+        .catalog__content
+          .catalog__title
+            +h1({text: 'Номера, которые мы для вас подобрали'})
+          .catalog__list 
+            each item, index in Array(5)
+              .catalog__item 
+                +card({
+                  images: [1, 2, 3, 4],
+                  number: 888,
+                  isLuxe: true,
+                  price: '9 900',
+                  rating: 5,
+                  reviewsCount: 145
+                })
+              .catalog__item 
+                +card({
+                  images: [5, 6, 7, 8],
+                  number: 840,
+                  price: '5 800',
+                  rating: 3,
+                  reviewsCount: 65
+                })
+              .catalog__item 
+                +card({
+                  images: [9, 10, 11, 12],
+                  number: 352,
+                  price: '5 000',
+                  rating: 4,
+                  reviewsCount: 35
+                })
+          .catalog__pagination 
+            +pagination()

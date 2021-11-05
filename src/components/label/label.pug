@@ -1,6 +1,12 @@
 //-
   options.id = id лейбла
   options.text = текст лейбла
+  options.modifiers = модификаторы
   
 mixin label(options={})
-  label.label(for=options.id)= options.text
+  if !options.modifiers
+    - options.modifiers = {}
+
+  - const classes = getModifiers('label', options.modifiers);
+
+  label.label(class=classes for=options.id)= options.text

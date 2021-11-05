@@ -1,0 +1,133 @@
+include ../h2/h2
+include ../label/label
+include ../date-dropdown/date-dropdown
+include ../dropdown/dropdown
+include ../range/range
+include ../checkbox-list/checkbox-list
+include ../collapse/collapse
+
+mixin filters()
+  -
+    const rulesItems = [
+      {
+        text: 'Можно курить',
+        name: 'smoke',
+      },
+      {
+        text: 'Можно с питомцами',
+        name: 'pets',
+        checked: true,
+      },
+      {
+        text: 'Можно пригласить гостей (до 10 человек)',
+        name: 'guests',
+        checked: true
+      },
+    ]
+
+    const availabilityItems = [
+      {
+        label: 'Широкий коридор',
+        text: 'Ширина коридоров в номере не менее 91 см.',
+        name: 'width',
+      },
+      {
+        label: 'Помощник для инвалидов',
+        text: 'На 1 этаже вас встретит специалист  и проводит до номера.',
+        name: 'help',
+      },
+    ]
+
+    const additionalAmenitiesItems = [
+      {
+        text: 'Завтрак',
+        name: 'breakfast',
+      },
+      {
+        text: 'Письменный стол',
+        name: 'desk',
+        checked: true
+      },
+      {
+        text: 'Стул для кормления',
+        name: 'feeding-chair',
+        checked: true
+      },
+      {
+        text: 'Кроватка',
+        name: 'crib',
+        checked: true
+      },
+      {
+        text: 'Телевизор',
+        name: 'tv',
+      },
+      {
+        text: 'Шампунь',
+        name: 'shampoo',
+      },
+    ]
+
+  .filters.filters_expanded.js-filters
+    .filters__header.js-filters__header
+      +h2({text: 'Фильтры'})
+    .filters__body
+      .filters__inner
+        .filters__item.filters__item_mb_15
+          +date-dropdown({
+            type: 'single'
+          })
+        .filters__item
+          +label({text: 'Гости'})
+          +dropdown({
+            items: [
+              {name: 'Взрослые', id: 'adults'},
+              {name: 'Дети', id: 'children'},
+              {name: 'Младенцы', id: 'babies'}
+            ],
+            hasButtons: true,
+            dropdownOptions: {
+              defaultText: 'Сколько гостей',
+              plural: ['гость', 'гостя', 'гостей']
+            }
+          })
+        .filters__item
+          +range({
+            title: 'Диапазон цены',
+            sliderOptions: {
+              range: {
+                min: 0,
+                max: 20000
+              },
+              start: [5000, 10000]
+            }
+          })
+          .filters__text Стоимость за сутки пребывания в номере
+        .filters__item
+          +label({text: 'Правила дома', modifiers: {mb: 15}})
+          +checkbox-list(rulesItems)
+        .filters__item
+          +label({text: 'Доступность', modifiers: {mb: 15}})
+          +checkbox-list(availabilityItems)
+        .filters__item
+          +label({text: 'Удобства номера'})
+          +dropdown({
+            items: [
+              {name: 'Спальни', id: 'bedrooms'},
+              {name: 'Кровати', id: 'beds'},
+              {name: 'Ванные комнаты', id: 'bathrooms'}
+            ],
+            dropdownOptions: {
+              defaultText: 'Количество удобств',
+              plural: {
+                bedrooms: ['спальня', 'спальни', 'спален'],
+                beds: ['кровать', 'кровати', 'кроватей'],
+                bathrooms: ['ванная комната', 'ванные комната', 'ванных комнат'],
+              }
+            }
+          })
+        .filters__item 
+          +collapse({
+            title: 'Дополнительные удобства'
+          })
+            +checkbox-list(additionalAmenitiesItems)
