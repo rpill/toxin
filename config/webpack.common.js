@@ -4,7 +4,16 @@ const fs = require('fs');
 
 const paths = require('./paths');
 
-const pages = fs.readdirSync(paths.pages).filter(fileName => fileName.endsWith('.pug'));
+const pages = fs
+  .readdirSync(paths.pages)
+  .map((dir) => {
+    const dirPath = `${paths.pages}/${dir}`;
+    return fs
+      .readdirSync(dirPath)
+      .filter((fileName) => fileName.endsWith('.pug'))
+      .map((page) => `${dir}/${page}`);
+  })
+  .flat();
 
 module.exports = {
   entry: [paths.src + '/js/index.js'],
@@ -21,34 +30,22 @@ module.exports = {
       jQuery: 'jquery',
     }),
 
-    // new CopyWebpackPlugin({
-    //   patterns: [{
-    //       from: path.posix.join(
-    //         path.resolve(__dirname, paths.src, 'components').replace(/\\/g, "/"),
-    //         "*/images/*"
-    //       ),
-    //       to({
-    //         context,
-    //         absoluteFilename
-    //       }) {
-    //         return `${path.relative(path.join(context, 'src'), absoluteFilename)}`;
-    //       },
-    //       noErrorOnMissing: true,
-    //     },
-    //   ],
-    // }),
+    ...pages.map(pagePath => {
+      const page = pagePath.split('/').pop();
 
-    ...pages.map(page => new HtmlWebpackPlugin({
-      template: `${paths.pages}/${page}`,
-      filename: `./${page.replace(/\.pug/,'.html')}`,
-      inject: 'body',
-      minify: false,
-      templateParameters: {
-        getModifiers: (className, modifiers) => (
-          Object.entries(modifiers).map((item) => `${className}_${item.join('_')}`)
-        ),
-      }
-    }))
+      return new HtmlWebpackPlugin({
+        cache: process.env.NODE_ENV === 'development',
+        template: `${paths.pages}/${pagePath}`,
+        filename: `./${page.replace(/\.pug/,'.html')}`,
+        inject: 'body',
+        minify: false,
+        templateParameters: {
+          getModifiers: (className, modifiers) => (
+            Object.entries(modifiers).map((item) => `${className}_${item.join('_')}`)
+          ),
+        }
+      })
+    })
   ],
   module: {
     rules: [

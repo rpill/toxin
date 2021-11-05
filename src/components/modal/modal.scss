@@ -1,6 +1,8 @@
 @import '~styles/variables';
 
 .modal {
+  max-width: 380px;
+  width: 100%;
   padding: 40px 28px 30px;
 
   background-color: white;
@@ -8,11 +10,32 @@
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
   border-radius: $border-radius;
 
+  @include respond-down('md') {
+    padding: 30px 15px;
+  }
+
   &__header {
     margin-bottom: 20px;
   }
 
   &__footer {
     margin-top: 30px;
+  }
+
+  &__footer-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__footer-text {
+    margin-right: 10px;
+    font-size: $text-font-size;
+    line-height: 18px;
+    color: black;
+  }
+
+  &__footer-button {
+    flex-shrink: 0;
   }
 }

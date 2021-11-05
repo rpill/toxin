@@ -24,3 +24,15 @@ mixin modal(options={})
     if slots["footer"]
       .modal__footer
         - slots["footer"]()
+
+mixin modal_footer-items()
+  .modal__footer-items
+    block
+
+mixin modal_footer-text()
+  .modal__footer-text
+    block
+
+mixin modal_footer-button()
+  .modal__footer-button
+    block

@@ -1,0 +1,23 @@
+@import '~styles/variables';
+
+.p-sign-up {
+  display: flex;
+  align-items: stretch;
+  flex-grow: 1;
+  min-height: 700px;
+  padding: 20px 0;
+  background: url('./images/background.jpg') center no-repeat;
+  background-size: cover;
+
+  @include respond-down('md') {
+    min-height: auto;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+  }
+}

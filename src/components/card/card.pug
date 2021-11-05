@@ -21,7 +21,7 @@ mixin card(options={})
               each image in options.images
                 .swiper-slide
                   .card__slider-item
-                    img.card__slider-image(src=require(`../components/card/images/${image}.jpg`), alt="")
+                    img.card__slider-image(src=require(`../../components/card/images/${image}.jpg`), alt="")
                     
             .card__slider-pagination.js-card-slider__pagination
             .card__slider-button.card__slider-button_prev.js-card-slider__button-prev

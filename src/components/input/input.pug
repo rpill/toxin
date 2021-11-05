@@ -7,7 +7,7 @@
   options.icon - иконка
 
 mixin input(options={})
-  .input
+  .input.js-input
     input.input__control(
       class=classes
       type=options.type
@@ -18,4 +18,4 @@ mixin input(options={})
     )
     if options.icon 
       span.input__icon 
-        img.input__icon-image(src=require(`../components/input/images/${options.icon}.svg`), alt="")
+        img.input__icon-image(src=require(`../../components/input/images/${options.icon}.svg`), alt="")

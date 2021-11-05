@@ -4,35 +4,36 @@ include ../input-field/input-field
 include ../button/button
 
 mixin sign-in()
-  .sign-in 
-    +modal({title: 'Войти'})
-      +slot('body')
-        +form()
-          +form_field()
-            +input-field({
-              input: {
-                name: 'email',
-                type: 'text', 
-                placeholder: 'Email'
-              }
-            })
-          +form_field()
-            +input-field({
-              input: {
-                name: 'password',
-                type: 'password', 
-                placeholder: 'Пароль'
-              }
-            })
-          +form_buttons()
-            +button({
-              text: 'Войти',
-              isSubmit: true,
-              modifiers: {width: 'full', icon: 'arrow-forward'}
-            })
-      +slot('footer')
-        .sign-in__footer
-          .sign-in__text Нет аккаунта на Toxin?
+  +modal({title: 'Войти'})
+    +slot('body')
+      +form()
+        +form_field()
+          +input-field({
+            input: {
+              name: 'email',
+              type: 'text', 
+              placeholder: 'Email'
+            }
+          })
+        +form_field()
+          +input-field({
+            input: {
+              name: 'password',
+              type: 'password', 
+              placeholder: 'Пароль'
+            }
+          })
+        +form_buttons()
+          +button({
+            text: 'Войти',
+            isSubmit: true,
+            modifiers: {width: 'full', icon: 'arrow-forward'}
+          })
+    +slot('footer')
+      +modal_footer-items()
+        +modal_footer-text()
+          | Нет аккаунта на Toxin?
+        +modal_footer-button()
           +button({
             text: 'Создать',
             href: '/mock-address/change-me',

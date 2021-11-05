@@ -4,7 +4,7 @@ import $ from 'jquery';
 import Inputmask from 'inputmask';
 
 $(() => {
-  $('.input[data-mask]').each((index, node) => {
+  $('.js-input [data-mask]').each((index, node) => {
     const mask = $(node).data('mask');
     Inputmask({ 
       mask, 

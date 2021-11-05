@@ -1,0 +1,13 @@
+extends ../../pug/base
+
+include ../../components/container/container
+include ../../components/sign-in/sign-in
+
+block title
+  | Sign in
+
+block main
+  .p-sign-in
+    +container()
+      .p-sign-in__container
+        +sign-in()
