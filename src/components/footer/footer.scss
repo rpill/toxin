@@ -50,11 +50,11 @@
 
   &__menu {
     display: flex;
-    justify-content: space-between;
     flex-grow: 1;
 
     @include respond-down('xl') {
       flex-wrap: wrap;
+      justify-content: space-between;
     }
 
     @include respond-down('lg') {
@@ -72,7 +72,15 @@
     margin-bottom: 40px;
 
     &:not(:last-child) {
-      margin-right: 55px;
+      margin-right: 155px;
+
+      @include respond-down('xxl') {
+        margin-right: 70px;
+      }
+
+      @include respond-down('xl') {
+        margin-right: 55px;
+      }
 
       @include respond-down('xl') {
         margin-right: 25px;
