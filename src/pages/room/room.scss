@@ -1,7 +1,11 @@
 @import '~styles/variables';
 
 .room {
-  padding-bottom: 70px;
+  padding-bottom: 40px;
+
+  @include respond-down('md') {
+    padding-bottom: 10px;
+  }
 
   &__gallery {
     display: grid; 
@@ -14,6 +18,7 @@
 
     @include respond-down('md') {
       grid-template-columns: 1.3fr 0.7fr; 
+      margin-bottom: 40px;
     }
   }
 

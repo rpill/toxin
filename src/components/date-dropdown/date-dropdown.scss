@@ -25,6 +25,10 @@
     border: 1px solid $color-dark-25;
     box-shadow: $box-shadow;
 
+    @include respond-down('xs') {
+      width: 265px;
+    }
+
     .air-datepicker {
 
       &--pointer {
@@ -35,6 +39,10 @@
         padding: 20px 20px 10px;
 
         border-bottom: 0;
+
+        @include respond-down('xs') {
+          padding: 20px 10px 10px;
+        }
 
         &--title {
           font-size: 19px;
@@ -77,6 +85,10 @@
 
       &--content {
         padding: 20px;
+
+        @include respond-down('xs') {
+          padding: 10px;
+        }
       }
 
       &-body {
@@ -91,11 +103,19 @@
           font-weight: 700;
           text-transform: none;
           color: $color-primary;
+
+          @include respond-down('xs') {
+            height: 35px;
+          }
         }
 
         &--cells {
           &.-days- {
             grid-auto-rows: 40px;
+
+            @include respond-down('xs') {
+              grid-auto-rows: 35px;
+            }
           }
         }
       }
