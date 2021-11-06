@@ -1,0 +1,185 @@
+@import '~styles/variables';
+
+.room {
+  padding-bottom: 70px;
+
+  &__gallery {
+    display: grid; 
+    grid-template-columns: 1.4fr 0.6fr; 
+    grid-template-rows: 1fr 1fr; 
+    grid-template-areas: 
+      "main top"
+      "main bottom";
+    margin-bottom: 70px;
+
+    @include respond-down('md') {
+      grid-template-columns: 1.3fr 0.7fr; 
+    }
+  }
+
+  &__gallery-item {
+    position: relative;
+    padding-bottom: 40%;
+
+    @include respond-down('md') {
+      padding-bottom: 60%;
+    }
+
+    &_area {
+      &_main {
+        grid-area: main;
+      }
+
+      &_top {
+        grid-area: top;
+      }
+
+      &_bottom {
+        grid-area: bottom;
+      }
+    }
+  }
+
+  &__gallery-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    height: 100%;
+    width: 100%;
+
+    font-family: 'object-fit: cover; object-position: center';
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__container {
+    display: flex;
+
+    @include respond-down('lg') {
+      display: block;
+    }
+  }
+
+  &__content {
+    width: calc(100% - 380px - 70px);
+
+    @include respond-down('lg') {
+      width: auto;
+    }
+  }
+
+  &__book-room {
+    order: 1;
+    margin-bottom: 30px;
+
+    @include respond-up('lg') {
+      margin-left: 70px;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__description-item {
+    width: 100%;
+    margin-bottom: 30px;
+
+    &:not(:last-child) {
+      margin-right: 155px;
+
+      @include respond-down('xxl') {
+        margin-right: 80px;
+      }
+    }
+
+    &_amenities {
+      max-width: 290px;
+    }
+
+    &_assessment {
+      max-width: 310px;
+    }
+  }
+
+  &__comments {
+    margin-top: 30px;
+  }
+
+  &__comments-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    @include respond-down('sm') {
+      display: block;
+    }
+  }
+
+  &__comments-count {
+    font-size: $text-font-size;
+    line-height: $text-line-height;
+    color: $color-dark-50;
+
+    @include respond-down('sm') {
+      margin-top: 20px;
+    }
+  }
+
+  &__comments-item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    margin-top: 30px;
+
+    @include respond-down('sm') {
+      display: block;
+    }
+  }
+
+  &__info-item {
+    width: 100%;
+    margin-bottom: 30px;
+
+    &:not(:last-child) {
+      margin-right: 155px;
+
+      @include respond-down('xxl') {
+        margin-right: 80px;
+      }
+
+      @include respond-down('sm') {
+        margin-right: 0;
+      }
+    }
+
+    &_rules {
+      max-width: 290px;
+    }
+
+    &_cancel {
+      max-width: 340px;
+    }
+  }
+
+  &__info-list {
+    margin-left: -20px;
+
+    @include respond-down('xxl') {
+      margin-left: 0;
+    }
+  }
+
+  &__info-text {
+    font-size: $text-font-size;
+    line-height: $text-line-height;
+    color: $color-dark-75;
+  }
+}

@@ -1,0 +1,34 @@
+include ../bullet-list/bullet-list
+
+mixin donut-chart()
+  -
+    const list = [
+      {
+        gradient: 'orange',
+        text: 'Великолепно'
+      },
+      {
+        gradient: 'green',
+        text: 'Хорошо'
+      },
+      {
+        gradient: 'purple',
+        text: 'Удовлетворительно'
+      },
+      {
+        gradient: 'black',
+        text: 'Разочарован'
+      },
+    ]
+
+  .donut-chart
+    .donut-chart__canvas-wrap
+      .donut-chart__canvas-header 
+        .donut-chart__canvas-count 260
+        .donut-chart__canvas-text голосов
+      canvas.donut-chart__canvas.js-donut-chart
+    .donut-chart__legend 
+      +bullet-list()
+        each item in list 
+          +bullet-list_item({modifiers: {gradient: item.gradient, mb: 0}})
+            | #{item.text}

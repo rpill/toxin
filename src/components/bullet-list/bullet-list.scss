@@ -11,10 +11,42 @@
 
     margin-bottom: 10px;
     padding-left: 20px;
-    
+
     font-size: $text-font-size;
     line-height: $text-line-height;
     color: $color-dark-75;
+
+    &_mb {
+      &_0 {
+        margin-bottom: 0;
+      }
+    }
+
+    &_gradient {
+      &_orange {
+        &:before {
+          background: linear-gradient(180deg, #ffe39c 0%, #ffba9c 100%);
+        }
+      }
+
+      &_green {
+        &:before {
+          background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+        }
+      }
+
+      &_purple {
+        &:before {
+          background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
+        }
+      }
+
+      &_black {
+        &:before {
+          background: linear-gradient(180deg, #919191 0%, #3d4975 100%);
+        }
+      }
+    }
 
     &:before {
       content: '';

@@ -7,4 +7,10 @@
   line-height: 23px;
   font-weight: 700;
   color: $color-dark;
+
+  &_mb {
+    &_20 {
+      margin-bottom: 20px;
+    }
+  }
 }

@@ -1,0 +1,43 @@
+@import '~styles/variables';
+
+.donut-chart {
+  display: flex;
+
+  &__canvas-wrap {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-right: 30px;
+
+    @include respond-down('sm') {
+      margin-right: 10px;
+    }
+  }
+
+  &__canvas-header {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  &__canvas-count {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    color: $color-primary;
+  }
+
+  &__canvas-text {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-primary;
+  }
+
+  &__legend {
+    padding-top: 30px;
+  }
+}
