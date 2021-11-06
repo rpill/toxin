@@ -11,10 +11,10 @@ mixin menu(options={})
   if !options.menuItems
     - options.menuItems = []
 
-  .menu
-    .menu__overlay 
+  .menu.js-menu
+    .menu__overlay.js-menu-close
     .menu__container 
-      button.menu__close(type="button")
+      button.menu__close.js-menu-close(type="button")
         span.menu__close-line
         span.menu__close-line
 

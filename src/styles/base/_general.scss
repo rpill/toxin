@@ -23,4 +23,8 @@ body {
   font-size: $text-font-size;
   line-height: $text-line-height;
   color: $color-dark-75;
+
+  &.menu-opened {
+    overflow: hidden;
+  }
 }

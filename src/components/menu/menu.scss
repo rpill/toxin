@@ -1,6 +1,8 @@
 @import '~styles/variables';
 
 .menu {
+  $p: &;
+
   position: fixed;
   z-index: 100;
   left: 0;
@@ -11,6 +13,19 @@
 
   visibility: hidden;
   transition: visibility 0.3s;
+
+  &_opened {
+    visibility: visible;
+    
+    #{$p}__overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #{$p}__container {
+      transform: translate(0, 0);
+    }
+  }
 
   &__overlay {
     position: absolute;
